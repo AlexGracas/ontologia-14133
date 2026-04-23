@@ -1,0 +1,1008 @@
+@prefix : <http://utfpr.edu.br/licitacao14133#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<http://utfpr.edu.br/licitacao14133> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Transacao rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Transacao"@en.
+:Alienacao rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Alienacao"@en;
+    rdfs:comment "A alienação de bens públicos é um processo pelo qual o governo transfere a propriedade de um bem público para um particular, podendo incluir a venda, doação, permuta, entre outros. Normalmente, esse processo requer uma licitação, procedimento administrativo que visa garantir a melhor proposta para a administração pública, seja em termos de valor, qualidade ou outros critérios.  \nFonte: https://www.eaa.com.br/artigos/alienacao-de-bens-publicos/\nAcesso 08/12/25\n\nalienação de bens imóveis, basicamente, 4 (quatro) requisitos, a saber:\n1) existência de interesse público, devidamente justificado;\n2) avaliação do bem;\n3) autorização legislativa (em regra);\n4) licitação, na modalidade leilão, exceto nos casos em que a licitação é dispensada.\n\n\nFonte: https://www.jusbrasil.com.br/artigos/alienacao-de-bens-publicos-na-nova-lei-de-licitacoes-lei-n-14133-2021/1240305200\nAcesso 08/12/25"@en.
+:Compra rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Compra"@en.
+:Concessao rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Concessao"@en.
+:Locacao rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Locacao"@en.
+:ModalidadeLicitacao rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "ModalidadeLicitacao"@en.
+:Concorrencia rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Concorrencia"@en.
+:Concurso rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Concurso"@en.
+:DialogoCompetitivo rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "DialogoCompetitivo"@en.
+:Leilao rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Leilao"@en.
+:Pregao rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Pregao"@en.
+:ProcessoLicitatrio rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ProcessoLicitatório"@en;
+    rdfs:comment "11. O processo licitatório tem por objetivos:\n\nI - assegurar a seleção da proposta apta a gerar o resultado de contratação mais vantajoso para a Administração Pública, inclusive no que se refere ao ciclo de vida do objeto;\n II - assegurar tratamento isonômico entre os licitantes, bem como a justa competição;\nIII - evitar contratações com sobrepreço ou com preços manifestamente inexequíveis e superfaturamento na execução dos contratos;\nIV - incentivar a inovação e o desenvolvimento nacional sustentável.\nParágrafo único. A alta administração do órgão ou entidade é responsável pela governança das contratações e deve implementar processos e estruturas, inclusive de gestão de riscos e controles internos, para avaliar, direcionar e monitorar os processos licitatórios e os respectivos contratos, com o intuito de alcançar os objetivos estabelecidos no caput deste artigo, promover um ambiente íntegro e confiável, assegurar o alinhamento das contratações ao planejamento estratégico e às leis orçamentárias e promover eficiência, efetividade e eficácia em suas contratações.\n "@en.
+:Licitante rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Licitante"@en;
+    rdfs:comment "A Definição de Licitante: \nIX - licitante: pessoa física ou jurídica, ou consórcio de pessoas jurídicas, que participa ou manifesta a intenção de participar de processo licitatório, sendo-lhe equiparável, para os fins desta Lei, o fornecedor ou o prestador de serviço que, em atendimento à solicitação da Administração, oferece proposta;"@en.
+:CriterioJulgamento rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "CriterioJulgamento"@en.
+:MenorPreco rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "MenorPreco"@en.
+:MelhorTecnica rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "MelhorTecnica"@en.
+:TecnicaEPreco rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "TecnicaEPreco"@en.
+:MaiorRetornoEconomico rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "MaiorRetornoEconomico"@en.
+:MaiorDesconto rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "MaiorDesconto"@en.
+:Contrato rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Contrato"@en.
+:ContratoDeEficiencia rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ContratoDeEficiencia"@en.
+:Premio rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Premio"@en.
+:Leiloeiro rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Leiloeiro"@en.
+:Proposta rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Proposta"@en.
+:LicitacaoEmFaseDePreparacao rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "LicitacaoEmFaseDePreparacao"@en;
+    rdfs:comment "Licitação em Fase Preparatória\nArt. 17. O processo de licitação observará as seguintes fases, em sequência:I - preparatória;\nEsta fase está listada na Lei 14133 Capítulo II"@en.
+:LicitacaoEmFaseDeEdital rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "LicitacaoEmFaseDeEdital"@en.
+:LicitacaoEmFaseDeJulgamento rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "LicitacaoEmFaseDeJulgamento"@en.
+:LicitacaoEmFaseDeHabilitacao rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "LicitacaoEmFaseDeHabilitacao"@en.
+:LicitacaoEmFaseRecursal rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "LicitacaoEmFaseRecursal"@en.
+:LicitacaoEmFaseDeHomologacao rdf:type owl:Class, gufo:Phase, owl:NamedIndividual;
+    rdfs:label "LicitacaoEmFaseDeHomologacao"@en.
+:IndiceReajustamentoDePreco rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quantity;
+    rdfs:label "IndiceReajustamentoDePreco"@en.
+:Autor rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Autor"@en.
+:Bem rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Bem"@en;
+    rdfs:comment "Lei 14.133/2021 \ncompra: aquisição remunerada de bens para fornecimento de uma só vez ou parceladamente, considerada imediata aquela com prazo de entrega de até 30 (trinta) dias da ordem de fornecimento;"@en.
+:Atividade rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Atividade"@en.
+:PrestaoDeServios rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Prestação de Serviços"@en.
+:LicitantePessoaJuridica rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "LicitantePessoaJuridica"@en.
+:LicitantePessoaFisica rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "LicitantePessoaFisica"@en.
+:Probabilidade rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Probabilidade"@en.
+:GravidadeImpacto rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "GravidadeImpacto"@en.
+:JustificativaParcelamento rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "JustificativaParcelamento"@en;
+    rdfs:comment "Lei 14.133\n\nArt 18. O estudo técnico preliminar a que se refere o inciso I do caput deste artigo deverá evidenciar o problema a ser resolvido e a sua melhor solução, de modo a permitir a avaliação da viabilidade técnica e econômica da contratação, e conterá os seguintes elementos:§ 1º […]\nVIII – justificativas para o parcelamento ou não da contratação;\n\nAcesso: 28 de Dezembro de 2025"@en.
+:CondicoesConcurso rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "CondicoesConcurso"@en.
+:Item rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Item"@en.
+:Pregoeiro rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Pregoeiro"@en.
+:Vulnerabilidade rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Vulnerabilidade"@en.
+:HabilitadorDeRisco rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "HabilitadorDeRisco"@en;
+    rdfs:comment "O habilitador do risco é um objetio ou pessoa que possiblitam que a experiência de risco aconteça. Por exemplo, em uma fábrica se um operador de máquina é ferido.\nNeste caso o operador da máquina é o Objeto Ameaçado e a Habilitadora do Risco é a máquina que não estava presa corretamente no chão."@en.
+:ObjetoEmRisco rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ObjetoEmRisco"@en.
+:SujeitoDoRisco rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "SujeitoDoRisco"@en.
+:ObjetodeAmeaa rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ObjetodeAmeaça"@en;
+    rdfs:comment "Este é o objeto que irá executar a ação que irá tornar o risco um evento de perda."@en.
+:RespostaCompartilhamento rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "RespostaCompartilhamento"@en.
+:RespostaAceitar rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "RespostaAceitar"@en.
+:EvitarRisco rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "EvitarRisco"@en.
+:MitigacaoRisco rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "MitigacaoRisco"@en.
+:RespostaRisco rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "RespostaRisco"@en.
+:AutorPessoaFisica rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "AutorPessoaFisica"@en.
+:AutorCorporativo rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "AutorCorporativo"@en.
+:PregoeiroPessoaFisica rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "PregoeiroPessoaFisica"@en.
+:PregoeiroPessoaJuridica rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "PregoeiroPessoaJuridica"@en.
+:EventoDeRisco rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "EventoDeRisco"@en.
+:RecursoDeMidiaVirtual rdf:type owl:Class, gufo:Mixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "RecursoDeMidiaVirtual"@en;
+    rdfs:comment "Uma mídia virtual é um meio virtual de persistir um documento. Como Páginas WEB, SEI, PJE entre outros."@en.
+:DocumentoSEI rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "DocumentoSEI"@en;
+    rdfs:comment "SEI (Sistema Eletrônico de Informações ) é o sistema para gestão de documentos e processos eletrônicos preferencialmente utilizada pela administração públcia no Brasil.\n\nO documento é um membro de um processo."@en.
+:PaginaWEB rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "PaginaWEB"@en.
+:ProcessoSEI rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ProcessoSEI"@en;
+    rdfs:comment "SEI é um Sistema Eletrônico de informações para gestão documental. Um processo SEI é um processo usualmente administrativo. O processo tem número específicação e outros dados."@en.
+:PessoaFisica rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "PessoaFisica"@en.
+:EquipeApoio rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "EquipeApoio"@en;
+    rdfs:comment "A Equipe de Apoio regulamentada pelo DECRETO Nº 11.246, DE 27 DE OUTUBRO DE 2022.\nArt. 4º  A equipe de apoio e os seus respectivos substitutos serão designados pela autoridade máxima do órgão ou da entidade, ou por quem as normas de organização administrativa indicarem, para auxiliar o agente de contratação ou a comissão de contratação na licitação, observados os requisitos estabelecidos no art. 10.\nParágrafo único.  A equipe de apoio poderá ser composta por terceiros contratados, observado o disposto no art. 13."@en.
+:AgenteDeContratacao rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "AgenteDeContratacao"@en;
+    rdfs:comment "A Lei 14.133 definiu (art. 6º, inc. LX e art. 8º) que as licitações serão conduzidas por um agente de contratação, que será designado pela autoridade competente, entre servidores efetivos ou empregados públicos dos quadros permanentes da Administração Pública, respeitados os critérios fixados pelo art. 7º.¹"@en.
+:AutoridadeCompetente rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "AutoridadeCompetente"@en.
+:ComissaoDeContratacao rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "ComissaoDeContratacao"@en;
+    rdfs:comment "L - comissão de contratação: conjunto de agentes públicos indicados pela Administração, em caráter permanente ou especial, com a função de receber, examinar e julgar documentos relativos às licitações e aos procedimentos auxiliares;\n\n§ 2º Em licitação que envolva bens ou serviços especiais, desde que observados os requisitos estabelecidos no art. 7º desta Lei, o agente de contratação poderá ser substituído por comissão de contratação formada por, no mínimo, 3 (três) membros, que responderão solidariamente por todos os atos praticados pela comissão, ressalvado o membro que expressar posição individual divergente fundamentada e registrada em ata lavrada na reunião em que houver sido tomada a decisão.\n\n§ 3º As regras relativas à atuação do agente de contratação e da equipe de apoio, ao funcionamento da comissão de contratação e à atuação de fiscais e gestores de contratos de que trata esta Lei serão estabelecidas em regulamento, e deverá ser prevista a possibilidade de eles contarem com o apoio dos órgãos de assessoramento jurídico e de controle interno para o desempenho das funções essenciais à execução do disposto nesta Lei.   (Regulamento)   Vigência \n\nXI - o diálogo competitivo será conduzido por comissão de contratação composta de pelo menos 3 (três) servidores efetivos ou empregados públicos pertencentes aos quadros permanentes da Administração, admitida a contratação de profissionais para assessoramento técnico da comissão;"@en.
+:AutoridadeMaximaDoOrgao rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "AutoridadeMaximaDoOrgao"@en.
+:Servidor rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Servidor"@en.
+:Conjugue rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Conjugue"@en.
+:AgentePublico rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "AgentePublico"@en;
+    rdfs:comment "O agente público é todo aquele que presta qualquer tipo de serviço ao Estado, que exerce funções públicas, no sentido mais amplo possível dessa expressão, significando qualquer atividade pública. A Lei de Improbidade Administrativa (Lei nº 8.429/1992) conceitua agente público como “todo aquele que exerce, ainda que transitoriamente ou sem remuneração, por eleição, nomeação, designação, contratação ou qualquer outra forma de investidura ou vínculo, mandato, cargo, emprego ou função nas entidades mencionadas no artigo anterior”. Trata-se, pois, de um gênero.  "@en.
+:Contratado rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Contratado"@en;
+    rdfs:comment "contratado: pessoa física ou jurídica, ou consórcio de pessoas jurídicas, signatária de contrato com a \nAdministração; \nReferência: Lei 14.133 Art 6 - VIII"@en.
+:PessoaJuridica rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "PessoaJuridica"@en.
+:EmpregadoPublico rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "EmpregadoPublico"@en.
+:Casamento rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Casamento"@en.
+:Governo rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Governo"@en.
+:Orgao rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Orgao"@en.
+:UnidadeGestora rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Unidade Gestora"@en.
+:GovernoFederal rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Governo Federal"@en.
+:GovernoEstadual rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Governo Estadual"@en.
+:GovernoMunicipal rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Governo Municipal"@en.
+:AtoDesignacao rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "AtoDesignacao"@en.
+:Contratante rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Contratante"@en;
+    rdfs:comment "VII - contratante: pessoa jurídica integrante da Administração Pública responsável pela contratação;"@en.
+:PessoaFsicaContratada rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "PessoaFísicaContratada"@en.
+:PessoaJuridicaContratada rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "PessoaJuridicaContratada"@en.
+:AgenteContratacaoSubstituo rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "AgenteContratacaoSubstituo"@en.
+:FiscalContrato rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "FiscalContrato"@en;
+    rdfs:comment "Art. 117. A execução do contrato deverá ser acompanhada e fiscalizada por         1 (um) ou mais fiscais do contrato, representantes da Administração especialmente designados conforme requisitos estabelecidos no art. 7º desta Lei, ou pelos respectivos substitutos, permitida a contratação de terceiros para assisti-los e subsidiá-los com informações pertinentes a essa atribuição.\n\n§ 1º O fiscal do contrato anotará em registro próprio todas as ocorrências relacionadas à execução do contrato, determinando o que for necessário para a regularização das faltas ou dos defeitos observados.\n\n§ 2º O fiscal do contrato informará a seus superiores, em tempo hábil para a adoção das medidas convenientes, a situação que demandar decisão ou providência que ultrapasse sua competência.\n\n§ 3º O fiscal do contrato será auxiliado pelos órgãos de assessoramento jurídico e de controle interno da Administração, que deverão dirimir dúvidas e subsidiá-lo com informações relevantes para prevenir riscos na execução contratual.\n\n§ 4º Na hipótese da contratação de terceiros prevista no caput deste artigo, deverão ser observadas as seguintes regras:\n         I - a empresa ou o profissional contratado assumirá responsabilidade civil objetiva pela veracidade e pela precisão das informações prestadas, firmará termo de compromisso de confidencialidade e não poderá exercer atribuição própria e exclusiva de fiscal de contrato;\n        II - a contratação de terceiros não eximirá de responsabilidade o fiscal do contrato, nos limites das informações recebidas do terceiro contratado. \n\nFonte: 14133 - Acesso 21 de Dezembro de 2025"@en.
+:GestorContrato rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "GestorContrato"@en;
+    rdfs:comment "\nDe acordo com Lei 14.133 no seu art. 8º. e\n  3º As regras relativas à atuação do agente de contratação e da equipe de apoio, ao funcionamento da comissão de contratação e à atuação de fiscais e gestores de contratos de que trata esta Lei serão estabelecidas em regulamento, e deverá ser prevista a possibilidade de eles contarem com o apoio dos órgãos de assessoramento jurídico e de controle interno para o desempenho das funções essenciais à execução do disposto nesta Lei.\n\n\nAcesso Lei 14.133 dia 05 de Janeiro de 2026 "@en.
+:Unidade rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Unidade"@en.
+:ProcessoDeContratacaoDireta rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ProcessoDeContratacaoDireta"@en;
+    rdfs:comment "Art. 72. O processo de contratação direta, que compreende os casos de inexigibilidade e de dispensa de licitação, deverá ser instruído com os seguintes documentos:\n\nI - documento de formalização de demanda e, se for o caso, estudo técnico preliminar, análise de riscos, termo de referência, projeto básico ou projeto executivo;  II - estimativa de despesa, que deverá ser calculada na forma estabelecida no art. 23 desta Lei; III - parecer jurídico e pareceres técnicos, se for o caso, que demonstrem o atendimento dos requisitos exigidos; IV - demonstração da compatibilidade da previsão de recursos orçamentários com o compromisso a ser assumido; V - comprovação de que o contratado preenche os requisitos de habilitação e qualificação mínima necessária; VI - razão da escolha do contratado; VII - justificativa de preço; VIII - autorização da autoridade competente."@en.
+:Inexigibilidade rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Inexigibilidade"@en;
+    rdfs:comment "\nArt. 74. É inexigível a licitação quando inviável a competição, em especial nos casos de:\n\nI - aquisição de materiais, de equipamentos ou de gêneros ou contratação de serviços que só possam ser fornecidos por produtor, empresa ou representante comercial exclusivos;\n\nII - contratação de profissional do setor artístico, diretamente ou por meio de empresário exclusivo, desde que consagrado pela crítica especializada ou pela opinião pública;\n\nIII - contratação dos seguintes serviços técnicos especializados de natureza predominantemente intelectual com profissionais ou empresas de notória especialização, vedada a inexigibilidade para serviços de publicidade e divulgação:\n\na) estudos técnicos, planejamentos, projetos básicos ou projetos executivos;\n\nb) pareceres, perícias e avaliações em geral;\n\nc) assessorias ou consultorias técnicas e auditorias financeiras ou tributárias;\n\nd) fiscalização, supervisão ou gerenciamento de obras ou serviços;\n\ne) patrocínio ou defesa de causas judiciais ou administrativas;\n\nf) treinamento e aperfeiçoamento de pessoal;\n\ng) restauração de obras de arte e de bens de valor histórico;\n\nh) controles de qualidade e tecnológico, análises, testes e ensaios de campo e laboratoriais, instrumentação e monitoramento de parâmetros específicos de obras e do meio ambiente e demais serviços de engenharia que se enquadrem no disposto neste inciso;\n "@en.
+:DispensaDeLicitacao rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Dispensa de Licitacao"@en;
+    rdfs:comment "\nDISPOSITIVO\nVALOR ATUALIZADO\nArt. 6º, caput, inciso XXII\nR$ 250.902.323,87 (duzentos e cinquenta milhões novecentos e dois mil trezentos e vinte e três reais e oitenta e sete centavos)\nArt. 37, § 2º\nR$ 376.353,48 (trezentos e setenta e seis mil trezentos e cinquenta e três reais e quarenta e oito centavos)\nArt. 70, caput, inciso III\nR$ 376.353,48 (trezentos e setenta e seis mil trezentos e cinquenta e três reais e quarenta e oito centavos)\nArt. 75, caput, inciso I\nR$ 125.451,15 (cento e vinte e cinco mil quatrocentos e cinquenta e um reais e quinze centavos)\nArt. 75, caput, inciso II\nR$ 62.725,59 (sessenta e dois mil setecentos e vinte e cinco reais e cinquenta e nove centavos)\nArt. 75, caput, inciso IV, alínea “c”\nR$ 376.353,48 (trezentos e setenta e seis mil trezentos e cinquenta e três reais e quarenta e oito centavos)\nArt. 75, § 7º\nR$ 10.036,10 (dez mil trinta e seis reais e dez centavos)\nArt. 95, § 2º\nR$ 12.545,11 (doze mil quinhentos e quarenta e cinco reais e onze centavos)\nArt. 184-A\nR$ 1.576.882,20 (um milhão quinhentos e setenta e seis mil oitocentos e oitenta e dois reais e vinte centavos)\nArt. 75. É dispensável a licitação:  \n\nI - para contratação que envolva valores inferiores a R$ 100.000,00 (cem mil reais), no caso de obras e serviços de engenharia ou de serviços de manutenção de veículos automotores;        (Vide Decreto nº 10.922, de 2021)      (Vigência)      (Vide Decreto nº 11.317, de 2022)       Vigência     (Vide Decreto nº 11.871, de 2023)     Vigência    (Vide Decreto nº 12.343, de 2024)    Vigência\n\nII - para contratação que envolva valores inferiores a R$ 50.000,00 (cinquenta mil reais), no caso de outros serviços e compras;        (Vide Decreto nº 10.922, de 2021)      (Vigência)       (Vide Decreto nº 11.317, de 2022)       Vigência      (Vide Decreto nº 11.871, de 2023)     Vigência    (Vide Decreto nº 12.343, de 2024)    Vigência\n\nIII - para contratação que mantenha todas as condições definidas em edital de licitação realizada há menos de 1 (um) ano, quando se verificar que naquela licitação:\n\na) não surgiram licitantes interessados ou não foram apresentadas propostas válidas;\n\nb) as propostas apresentadas consignaram preços manifestamente superiores aos praticados no mercado ou incompatíveis com os fixados pelos órgãos oficiais competentes;\n\nIV - para contratação que tenha por objeto:\n\na) bens, componentes ou peças de origem nacional ou estrangeira necessários à manutenção de equipamentos, a serem adquiridos do fornecedor original desses equipamentos durante o período de garantia técnica, quando essa condição de exclusividade for indispensável para a vigência da garantia;\n\nb) bens, serviços, alienações ou obras, nos termos de acordo internacional específico aprovado pelo Congresso Nacional, quando as condições ofertadas forem manifestamente vantajosas para a Administração;\n\nc) produtos para pesquisa e desenvolvimento, limitada a contratação, no caso de obras e serviços de engenharia, ao valor de R$ 300.000,00 (trezentos mil reais);        (Vide Decreto nº 10.922, de 2021)      (Vigência)      (Vide Decreto nº 11.317, de 2022)       Vigência      (Vide Decreto nº 11.871, de 2023)     Vigência    (Vide Decreto nº 12.343, de 2024)    Vigência\n\nd) transferência de tecnologia ou licenciamento de direito de uso ou de exploração de criação protegida, nas contratações realizadas por instituição científica, tecnológica e de inovação (ICT) pública ou por agência de fomento, desde que demonstrada vantagem para a Administração;\n\ne) hortifrutigranjeiros, pães e outros gêneros perecíveis, no período necessário para a realização dos processos licitatórios correspondentes, hipótese em que a contratação será realizada diretamente com base no preço do dia;\n\nf) bens ou serviços produzidos ou prestados no País que envolvam, cumulativamente, alta complexidade tecnológica e defesa nacional;\n\ng) materiais de uso das Forças Armadas, com exceção de materiais de uso pessoal e administrativo, quando houver necessidade de manter a padronização requerida pela estrutura de apoio logístico dos meios navais, aéreos e terrestres, mediante autorização por ato do comandante da força militar;\n\nh) bens e serviços para atendimento dos contingentes militares das forças singulares brasileiras empregadas em operações de paz no exterior, hipótese em que a contratação deverá ser justificada quanto ao preço e à escolha do fornecedor ou executante e ratificada pelo comandante da força militar;\n\ni) abastecimento ou suprimento de efetivos militares em estada eventual de curta duração em portos, aeroportos ou localidades diferentes de suas sedes, por motivo de movimentação operacional ou de adestramento;\n\nj) coleta, processamento e comercialização de resíduos sólidos urbanos recicláveis ou reutilizáveis, em áreas com sistema de coleta seletiva de lixo, realizados por associações ou cooperativas formadas exclusivamente de pessoas físicas de baixa renda reconhecidas pelo poder público como catadores de materiais recicláveis, com o uso de equipamentos compatíveis com as normas técnicas, ambientais e de saúde pública;\n\nk) aquisição ou restauração de obras de arte e objetos históricos, de autenticidade certificada, desde que inerente às finalidades do órgão ou com elas compatível;\n\nl) serviços especializados ou aquisição ou locação de equipamentos destinados ao rastreamento e à obtenção de provas previstas nos incisos II e V do caput do art. 3º da Lei nº 12.850, de 2 de agosto de 2013, quando houver necessidade justificada de manutenção de sigilo sobre a investigação;\n\nm) aquisição de medicamentos destinados exclusivamente ao tratamento de doenças raras definidas pelo Ministério da Saúde;\n\nV - para contratação com vistas ao cumprimento do disposto nos arts. 3º, 3º-A, 4º, 5º e 20 da Lei nº 10.973, de 2 de dezembro de 2004, observados os princípios gerais de contratação constantes da referida Lei;\n\nVI - para contratação que possa acarretar comprometimento da segurança nacional, nos casos estabelecidos pelo Ministro de Estado da Defesa, mediante demanda dos comandos das Forças Armadas ou dos demais ministérios;\n\nVII - nos casos de guerra, estado de defesa, estado de sítio, intervenção federal ou de grave perturbação da ordem;\n\nVIII - nos casos de emergência ou de calamidade pública, quando caracterizada urgência de atendimento de situação que possa ocasionar prejuízo ou comprometer a continuidade dos serviços públicos ou a segurança de pessoas, obras, serviços, equipamentos e outros bens, públicos ou particulares, e somente para aquisição dos bens necessários ao atendimento da situação emergencial ou calamitosa e para as parcelas de obras e serviços que possam ser concluídas no prazo máximo de 1 (um) ano, contado da data de ocorrência da emergência ou da calamidade, vedadas a prorrogação dos respectivos contratos e a recontratação de empresa já contratada com base no disposto neste inciso;  (Vide ADI 6890)\n\nIX - para a aquisição, por pessoa jurídica de direito público interno, de bens produzidos ou serviços prestados por órgão ou entidade que integrem a Administração Pública e que tenham sido criados para esse fim específico, desde que o preço contratado seja compatível com o praticado no mercado;\n\nX - quando a União tiver que intervir no domínio econômico para regular preços ou normalizar o abastecimento;  \n\nXI - para celebração de contrato de programa com ente federativo ou com entidade de sua Administração Pública indireta que envolva prestação de serviços públicos de forma associada nos termos autorizados em contrato de consórcio público ou em convênio de cooperação;\n\nXII - para contratação em que houver transferência de tecnologia de produtos estratégicos para o Sistema Único de Saúde (SUS), conforme elencados em ato da direção nacional do SUS, inclusive por ocasião da aquisição desses produtos durante as etapas de absorção tecnológica, e em valores compatíveis com aqueles definidos no instrumento firmado para a transferência de tecnologia;\n\nXIII - para contratação de profissionais para compor a comissão de avaliação de critérios de técnica, quando se tratar de profissional técnico de notória especialização;\n\nXIV - para contratação de associação de pessoas com deficiência, sem fins lucrativos e de comprovada idoneidade, por órgão ou entidade da Administração Pública, para a prestação de serviços, desde que o preço contratado seja compatível com o praticado no mercado e os serviços contratados sejam prestados exclusivamente por pessoas com deficiência;\n\nXV - para contratação de instituição brasileira que tenha por finalidade estatutária apoiar, captar e executar atividades de ensino, pesquisa, extensão, desenvolvimento institucional, científico e tecnológico e estímulo à inovação, inclusive para gerir administrativa e financeiramente essas atividades, ou para contratação de instituição dedicada à recuperação social da pessoa presa, desde que o contratado tenha inquestionável reputação ética e profissional e não tenha fins lucrativos; \n\nXVI - para aquisição, por pessoa jurídica de direito público interno, de insumos estratégicos para a saúde produzidos por fundação que, regimental ou estatutariamente, tenha por finalidade apoiar órgão da Administração Pública direta, sua autarquia ou fundação em projetos de ensino, pesquisa, extensão, desenvolvimento institucional, científico e tecnológico e de estímulo à inovação, inclusive na gestão administrativa e financeira necessária à execução desses projetos, ou em parcerias que envolvam transferência de tecnologia de produtos estratégicos para o SUS, nos termos do inciso XII deste caput, e que tenha sido criada para esse fim específico em data anterior à entrada em vigor desta Lei, desde que o preço contratado seja compatível com o praticado no mercado;    (Redação dada pela Lei nº 14.628, de 2023) \n\n\nXVIII - para contratação de entidades privadas sem fins lucrativos, para a implementação do Programa Cozinha Solidária, que tem como finalidade fornecer alimentação gratuita preferencialmente à população em situação de vulnerabilidade e risco social, incluída a população em situação de rua, com vistas à promoção de políticas de segurança alimentar e nutricional e de assistência social e à efetivação de direitos sociais, dignidade humana, resgate social e melhoria da qualidade de vida.      (Incluído pela Lei nº 14.628, de 2023)\n\n§ 1º Para fins de aferição dos valores que atendam aos limites referidos nos incisos I e II do caput deste artigo, deverão ser observados:\n\nI - o somatório do que for despendido no exercício financeiro pela respectiva unidade gestora;\n\nII - o somatório da despesa realizada com objetos de mesma natureza, entendidos como tais aqueles relativos a contratações no mesmo ramo de atividade.\n\n§ 2º Os valores referidos nos incisos I e II do caput deste artigo serão duplicados para compras, obras e serviços contratados por consórcio público ou por autarquia ou fundação qualificadas como agências executivas na forma da lei.\n\n§ 3º As contratações de que tratam os incisos I e II do caput deste artigo serão preferencialmente precedidas de divulgação de aviso em sítio eletrônico oficial, pelo prazo mínimo de 3 (três) dias úteis, com a especificação do objeto pretendido e com a manifestação de interesse da Administração em obter propostas adicionais de eventuais interessados, devendo ser selecionada a proposta mais vantajosa.\n\n§ 4º As contratações de que tratam os incisos I e II do caput deste artigo serão preferencialmente pagas por meio de cartão de pagamento, cujo extrato deverá ser divulgado e mantido à disposição do público no Portal Nacional de Contratações Públicas (PNCP).\n\n§ 5º A dispensa prevista na alínea “c” do inciso IV do caput deste artigo, quando aplicada a obras e serviços de engenharia, seguirá procedimentos especiais instituídos em regulamentação específica.\n\n§ 6º Para os fins do inciso VIII do caput deste artigo, considera-se emergencial a contratação por dispensa com objetivo de manter a continuidade do serviço público, e deverão ser observados os valores praticados pelo mercado na forma do art. 23 desta Lei e adotadas as providências necessárias para a conclusão do processo licitatório, sem prejuízo de apuração de responsabilidade dos agentes públicos que deram causa à situação emergencial.\n\n§ 7º Não se aplica o disposto no § 1º deste artigo às contratações de até R$ 8.000,00 (oito mil reais) de serviços de manutenção de veículos automotores de propriedade do órgão ou entidade contratante, incluído o fornecimento de peças.        (Vide Decreto nº 10.922, de 2021)      (Vigência)     (Vide Decreto nº 11.317, de 2022)       Vigência      (Vide Decreto nº 11.871, de 2023)     Vigência    (Vide Decreto nº 12.343, de 2024)    Vigência\n  "@en.
+:Autorizacao rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Autorizacao"@en.
+:ModalidadeContratacaoDireta rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "ModalidadeContratacaoDireta"@en.
+:MotivoContratacaoDireta rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "MotivoContratacaoDireta"@en.
+:InviabilidadeDeCompeticao rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "InviabilidadeDeCompeticao"@en.
+:FornecedorExclusivo rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "FornecedorExclusivo"@en;
+    rdfs:comment "I - aquisição de materiais, de equipamentos ou de gêneros ou contratação de serviços que só possam ser fornecidos por produtor, empresa ou representante comercial exclusivos;"@en.
+:ProfissionalArtistico rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ProfissionalArtistico"@en;
+    rdfs:comment "II - contratação de profissional do setor artístico, diretamente ou por meio de empresário exclusivo, desde que consagrado pela crítica especializada ou pela opinião pública;"@en.
+:ServicoTecnicoEspecializado rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ServicoTecnicoEspecializado"@en;
+    rdfs:comment "III - contratação dos seguintes serviços técnicos especializados de natureza predominantemente intelectual com profissionais ou empresas de notória especialização, vedada a inexigibilidade para serviços de publicidade e divulgação:"@en.
+:Credenciamento rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Credenciamento"@en;
+    rdfs:comment "Art. 74. É inexigível a licitação quando inviável a competição, em especial nos casos de:\nIV - objetos que devam ou possam ser contratados por meio de credenciamento;\n\nDe acordo com o glossário Credenciamento é:\n\nXLIII – credenciamento: processo administrativo de chamamento público em que a\nAdministração Pública convoca interessados em prestar serviços ou fornecer bens para\nque, preenchidos os requisitos necessários, credenciem-se no órgão ou na entidade\npara executar o objeto quando convocados;\n\nComentário de Juristas ou Professores\n\nNo credencimento, todos os interessados que atenderem aos requisitos exigidos serão\ncredenciados e, por isso, não haverá competição entre eles. Um exemplo é o\ncredenciamento de laboratórios para exames clínicos. Uma prefeitura poderia lançar um\nedital de credenciamento e todos os laboratórios da cidade que estivessem interessados\npoderiam se credenciar. Assim, a escolha do laboratório ficaria a cargo do cidadão-usuário\ndo serviço, sem que houvesse uma escolha direta da administração."@en.
+:AquisicaoDeImoveis rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "AquisicaoDeImoveis"@en;
+    rdfs:comment "\nV - aquisição ou locação de imóvel cujas características de instalações e de localização tornem necessária sua escolha.\n\n§ 1º Para fins do disposto no inciso I do caput deste artigo, a Administração deverá demonstrar a inviabilidade de competição mediante atestado de exclusividade, contrato de exclusividade, declaração do fabricante ou outro documento idôneo capaz de comprovar que o objeto é fornecido ou prestado por produtor, empresa ou representante comercial exclusivos, vedada a preferência por marca específica.\n\n§ 2º Para fins do disposto no inciso II do caput deste artigo, considera-se empresário exclusivo a pessoa física ou jurídica que possua contrato, declaração, carta ou outro documento que ateste a exclusividade permanente e contínua de representação, no País ou em Estado específico, do profissional do setor artístico, afastada a possibilidade de contratação direta por inexigibilidade por meio de empresário com representação restrita a evento ou local específico.\n\n§ 3º Para fins do disposto no inciso III do caput deste artigo, considera-se de notória especialização o profissional ou a empresa cujo conceito no campo de sua especialidade, decorrente de desempenho anterior, estudos, experiência, publicações, organização, aparelhamento, equipe técnica ou outros requisitos relacionados com suas atividades, permita inferir que o seu trabalho é essencial e reconhecidamente adequado à plena satisfação do objeto do contrato.\n\n§ 4º Nas contratações com fundamento no inciso III do caput deste artigo, é vedada a subcontratação de empresas ou a atuação de profissionais distintos daqueles que tenham justificado a inexigibilidade.\n\n§ 5º Nas contratações com fundamento no inciso V do caput deste artigo, devem ser observados os seguintes requisitos:\n\nI - avaliação prévia do bem, do seu estado de conservação, dos custos de adaptações, quando imprescindíveis às necessidades de utilização, e do prazo de amortização dos investimentos;\n\nII - certificação da inexistência de imóveis públicos vagos e disponíveis que atendam ao objeto;\n\nIII - justificativas que demonstrem a singularidade do imóvel a ser comprado ou locado pela Administração e que evidenciem vantagem para ela."@en.
+:MotivoPorPreco rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "MotivoPorPreco"@en.
+:MotivoPorInexistenciaLicitante rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "MotivoPorInexistenciaLicitante"@en.
+:MotivoPrecosSuperiores rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "MotivoPrecosSuperiores"@en.
+:Documento rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Documento"@en.
+:EstudoTecnicoPreliminar rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "EstudoTecnicoPreliminar"@en;
+    rdfs:comment "LEI 14133\n\nXX - estudo técnico preliminar: documento constitutivo da primeira etapa do planejamento de uma contratação que caracteriza o interesse público envolvido e a sua melhor solução e dá base ao anteprojeto, ao termo de referência ou ao projeto básico a serem elaborados caso se conclua pela viabilidade da contratação;\n\nArt 18.\n§ 1º O estudo técnico preliminar a que se refere o inciso I do caput deste artigo deverá evidenciar o problema a ser resolvido e a sua melhor solução, de modo a permitir a avaliação da viabilidade técnica e econômica da contratação, e conterá os seguintes elementos:\n\nI - descrição da necessidade da contratação, considerado o problema a ser resolvido sob a perspectiva do interesse público;\n\nII - demonstração da previsão da contratação no plano de contratações anual, sempre que elaborado, de modo a indicar o seu alinhamento com o planejamento da Administração;\n\nIII - requisitos da contratação;\n\nIV - estimativas das quantidades para a contratação, acompanhadas das memórias de cálculo e dos documentos que lhes dão suporte, que considerem interdependências com outras contratações, de modo a possibilitar economia de escala;\n\nV - levantamento de mercado, que consiste na análise das alternativas possíveis, e justificativa técnica e econômica da escolha do tipo de solução a contratar;\n\nVI - estimativa do valor da contratação, acompanhada dos preços unitários referenciais, das memórias de cálculo e dos documentos que lhe dão suporte, que poderão constar de anexo classificado, se a Administração optar por preservar o seu sigilo até a conclusão da licitação;\n\nVII - descrição da solução como um todo, inclusive das exigências relacionadas à manutenção e à assistência técnica, quando for o caso;\n\nVIII - justificativas para o parcelamento ou não da contratação;\n\nIX - demonstrativo dos resultados pretendidos em termos de economicidade e de melhor aproveitamento dos recursos humanos, materiais e financeiros disponíveis;\n\nX - providências a serem adotadas pela Administração previamente à celebração do contrato, inclusive quanto à capacitação de servidores ou de empregados para fiscalização e gestão contratual;\n\nXI - contratações correlatas e/ou interdependentes;\n\nXII - descrição de possíveis impactos ambientais e respectivas medidas mitigadoras, incluídos requisitos de baixo consumo de energia e de outros recursos, bem como logística reversa para desfazimento e reciclagem de bens e refugos, quando aplicável;\n\nXIII - posicionamento conclusivo sobre a adequação da contratação para o atendimento da necessidade a que se destina.\n\n§ 2º O estudo técnico preliminar deverá conter ao menos os elementos previstos nos incisos I, IV, VI, VIII e XIII do § 1º deste artigo e, quando não contemplar os demais elementos previstos no referido parágrafo, apresentar as devidas justificativas.\n\n§ 3º Em se tratando de estudo técnico preliminar para contratação de obras e serviços comuns de engenharia, se demonstrada a inexistência de prejuízo para a aferição dos padrões de desempenho e qualidade almejados, a especificação do objeto poderá ser realizada apenas em termo de referência ou em projeto básico, dispensada a elaboração de projetos.\n \n "@en.
+:TermoDeReferencia rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "TermoDeReferencia"@en;
+    rdfs:comment "XXIII - termo de referência: documento necessário para a contratação de bens e serviços, que deve conter os seguintes parâmetros e elementos descritivos:\n\na) definição do objeto, incluídos sua natureza, os quantitativos, o prazo do contrato e, se for o caso, a possibilidade de sua prorrogação;\n\nb) fundamentação da contratação, que consiste na referência aos estudos técnicos preliminares correspondentes ou, quando não for possível divulgar esses estudos, no extrato das partes que não contiverem informações sigilosas;\n\nc) descrição da solução como um todo, considerado todo o ciclo de vida do objeto;\n\nd) requisitos da contratação;\n\ne) modelo de execução do objeto, que consiste na definição de como o contrato deverá produzir os resultados pretendidos desde o seu início até o seu encerramento;\n\nf) modelo de gestão do contrato, que descreve como a execução do objeto será acompanhada e fiscalizada pelo órgão ou entidade;\n\ng) critérios de medição e de pagamento;\n\nh) forma e critérios de seleção do fornecedor;\n\ni) estimativas do valor da contratação, acompanhadas dos preços unitários referenciais, das memórias de cálculo e dos documentos que lhe dão suporte, com os parâmetros utilizados para a obtenção dos preços e para os respectivos cálculos, que devem constar de documento separado e classificado;\n\nj) adequação orçamentária;"@en.
+:AnteProjeto rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "AnteProjeto"@en.
+:ProjetoBasico rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ProjetoBasico"@en.
+:ProjetoExecutivo rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "ProjetoExecutivo"@en.
+:MatrizDeRiscos rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "MatrizDeRiscos"@en;
+    rdfs:comment "Lei 14.133\nXXVII - matriz de riscos: cláusula contratual definidora de riscos e de responsabilidades entre as partes e caracterizadora do equilíbrio econômico-financeiro inicial do contrato, em termos de ônus financeiro decorrente de eventos supervenientes à contratação, contendo, no mínimo, as seguintes informações:\na) listagem de possíveis eventos supervenientes à assinatura do contrato que possam causar impacto em seu equilíbrio econômico-financeiro e previsão de eventual necessidade de prolação de termo aditivo por ocasião de sua ocorrência;\nb) no caso de obrigações de resultado, estabelecimento das frações do objeto com relação às quais haverá liberdade para os contratados inovarem em soluções metodológicas ou tecnológicas, em termos de modificação das soluções previamente delineadas no anteprojeto ou no projeto básico;\nc) no caso de obrigações de meio, estabelecimento preciso das frações do objeto com relação às quais não haverá liberdade para os contratados inovarem em soluções metodológicas ou tecnológicas, devendo haver obrigação de aderência entre a execução e a solução predefinida no anteprojeto ou no projeto básico, consideradas as características do regime de execução no caso de obras e serviços de engenharia;"@en.
+:AtaRegistroDePrecos rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "AtaRegistroDePrecos"@en;
+    rdfs:comment "Segundo o DECRETO Nº 11.462, DE 31 DE MARÇO DE 2023\n\nArt 1.\n(...)\nII - ata de registro de preços - documento vinculativo e obrigacional, com característica de compromisso para futura contratação, no qual são registrados o objeto, os preços, os fornecedores, os órgãos ou as entidades participantes e as condições a serem praticadas, conforme as disposições contidas no edital da licitação, no aviso ou no instrumento de contratação direta e nas propostas apresentadas;\n(...)\nArt. 14. O processo licitatório para registro de preços será realizado na modalidade concorrência ou pregão. \n\nAcesso: 05 de Janeiro de 2026 acessado o Decreto 11.462"@en.
+:PlanoDeContratacaoAnual rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "PlanoDeContratacaoAnual"@en.
+:DescricaoDaNecessidade rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "DescricaoDaNecessidade"@en;
+    rdfs:comment "\nVerificar na CGU!"@en.
+:RequisitosDaContratacao rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "RequisitosDaContratacao"@en.
+:AlternativasPossiveis rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "AlternativasPossiveis"@en;
+    rdfs:comment "art. 18 […] O estudo técnico preliminar a que se refere o inciso I do caput deste artigo deverá evidenciar o problema a ser resolvido e a sua melhor solução, de modo a permitir a avaliação da viabilidade técnica e econômica da contratação, e conterá os seguintes elementos:§ 1º […]\nV – levantamento de mercado, que consiste na análise das alternativas possíveis, e justificativa técnica e econômica da escolha do tipo de solução a contratar;\n\nAcesso: 28/12/2025"@en.
+:AlternativaEscolhida rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "AlternativaEscolhida"@en;
+    rdfs:comment "art. 18 […] O estudo técnico preliminar a que se refere o inciso I do caput deste artigo deverá evidenciar o problema a ser resolvido e a sua melhor solução, de modo a permitir a avaliação da viabilidade técnica e econômica da contratação, e conterá os seguintes elementos:§ 1º […]\nV – levantamento de mercado, que consiste na análise das alternativas possíveis, e justificativa técnica e econômica da escolha do tipo de solução a contratar;\n\nAcesso: 28/12/2025"@en.
+:EditalLicitacao rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "EditalLicitacao"@en;
+    rdfs:comment "O Edital de Licitação poderá estabelecer o limite máximo para o número de empresas consorciadas.\nA divulgação do Edital de Licitação deve ser após o início da fase preparatória e antes da apresentação de propostas el lances, quando for o caso..\n\nDe acordo com Art 13. Parágrafo Único IV:Deve constar expressamente no edital de Licitação: aquele que mantenha vínculo de natureza técnica, comercial, econômica, financeira, trabalhista ou civil com dirigente do órgão ou entidade contratante ou com agente público que desempenhe função na licitação ou atue na fiscalização ou na gestão do contrato, ou que deles seja cônjuge, companheiro ou parente em linha reta, colateral ou por afinidade, até o terceiro grau."@en.
+:DocumentoDeFormalizacaoDeDemamanda rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "DocumentoDeFormalizacaoDeDemamanda"@en;
+    rdfs:comment "Art 12. VIIpartir de documentos de formalização de demandas, os órgãos responsáveis pelo planejamento de cada ente federativo poderão, na forma de regulamento, elaborar plano de contratações anual, com o objetivo de racionalizar as contratações dos órgãos e entidades sob sua competência, garantir o alinhamento com o seu planejamento estratégico e subsidiar a elaboração das respectivas leis orçamentárias. \nFonte: Lei 14133\n\n\n\nFonte: DECRETO Nº 10.947, DE 25 DE JANEIRO DE 2022\ndocumento que fundamenta o plano de contratações anual, em que a área requisitante evidencia e detalha a necessidade de contratação;"@en.
+:Avaliacao rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Avaliacao"@en.
+:Edital rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Edital"@en.
+:Alienacao rdfs:subClassOf :Transacao.
+:Compra rdfs:subClassOf :Transacao.
+:Concessao rdfs:subClassOf :Transacao.
+:Locacao rdfs:subClassOf :Transacao.
+:MenorPreco rdfs:subClassOf :CriterioJulgamento.
+:MelhorTecnica rdfs:subClassOf :CriterioJulgamento.
+:TecnicaEPreco rdfs:subClassOf :CriterioJulgamento.
+:MaiorRetornoEconomico rdfs:subClassOf :CriterioJulgamento.
+:MaiorDesconto rdfs:subClassOf :CriterioJulgamento.
+:Concorrencia rdfs:subClassOf :ModalidadeLicitacao.
+:Concurso rdfs:subClassOf :ModalidadeLicitacao.
+:DialogoCompetitivo rdfs:subClassOf :ModalidadeLicitacao.
+:Leilao rdfs:subClassOf :ModalidadeLicitacao.
+:Pregao rdfs:subClassOf :ModalidadeLicitacao.
+:ContratoDeEficiencia rdfs:subClassOf :Contrato.
+:LicitacaoEmFaseDePreparacao rdfs:subClassOf :ProcessoLicitatrio.
+:LicitacaoEmFaseDeEdital rdfs:subClassOf :ProcessoLicitatrio.
+:LicitacaoEmFaseDeJulgamento rdfs:subClassOf :ProcessoLicitatrio.
+:LicitacaoEmFaseDeHabilitacao rdfs:subClassOf :ProcessoLicitatrio.
+:LicitacaoEmFaseRecursal rdfs:subClassOf :ProcessoLicitatrio.
+:LicitacaoEmFaseDeHomologacao rdfs:subClassOf :ProcessoLicitatrio.
+:ProcessoDeContratacaoDireta rdfs:subClassOf :ProcessoLicitatrio.
+:PrestaoDeServios rdfs:subClassOf :Transacao.
+:LicitantePessoaJuridica rdfs:subClassOf :Licitante.
+:LicitantePessoaFisica rdfs:subClassOf :Licitante.
+:MitigacaoRisco rdfs:subClassOf :RespostaRisco.
+:EvitarRisco rdfs:subClassOf :RespostaRisco.
+:RespostaCompartilhamento rdfs:subClassOf :RespostaRisco.
+:RespostaAceitar rdfs:subClassOf :RespostaRisco.
+:PregoeiroPessoaFisica rdfs:subClassOf :Pregoeiro.
+:PregoeiroPessoaJuridica rdfs:subClassOf :Pregoeiro.
+:AutorPessoaFisica rdfs:subClassOf :Autor.
+:AutorCorporativo rdfs:subClassOf :Autor.
+:PaginaWEB rdfs:subClassOf :RecursoDeMidiaVirtual.
+:DocumentoSEI rdfs:subClassOf :RecursoDeMidiaVirtual.
+:AgenteDeContratacao rdfs:subClassOf :Servidor.
+:AutoridadeCompetente rdfs:subClassOf :AgentePublico.
+:Servidor rdfs:subClassOf :AgentePublico.
+:Conjugue rdfs:subClassOf :PessoaFisica.
+:AgentePublico rdfs:subClassOf :PessoaFisica.
+:AutoridadeMaximaDoOrgao rdfs:subClassOf :AutoridadeCompetente.
+:LicitantePessoaJuridica rdfs:subClassOf :PessoaJuridica.
+:EmpregadoPublico rdfs:subClassOf :AgentePublico.
+:AgenteDeContratacao rdfs:subClassOf :EmpregadoPublico.
+:Leiloeiro rdfs:subClassOf :PessoaFisica.
+:AutorCorporativo rdfs:subClassOf :PessoaJuridica.
+:AutorPessoaFisica rdfs:subClassOf :PessoaFisica.
+:UnidadeGestora rdfs:subClassOf :Orgao.
+:GovernoEstadual rdfs:subClassOf :Governo.
+:GovernoMunicipal rdfs:subClassOf :Governo.
+:GovernoFederal rdfs:subClassOf :Governo.
+:Contratante rdfs:subClassOf :PessoaJuridica.
+:PessoaFsicaContratada rdfs:subClassOf :PessoaFisica, :Contratado.
+:PessoaJuridicaContratada rdfs:subClassOf :PessoaJuridica, :Contratado.
+:LicitantePessoaFisica rdfs:subClassOf :PessoaFisica.
+:AgenteContratacaoSubstituo rdfs:subClassOf :AgenteDeContratacao.
+:FiscalContrato rdfs:subClassOf :AgenteDeContratacao.
+:GestorContrato rdfs:subClassOf :AgenteDeContratacao.
+:Leiloeiro rdfs:subClassOf :AgenteDeContratacao.
+:PregoeiroPessoaJuridica rdfs:subClassOf :PessoaJuridica.
+:PregoeiroPessoaFisica rdfs:subClassOf :PessoaFisica.
+:DispensaDeLicitacao rdfs:subClassOf :ModalidadeContratacaoDireta.
+:Inexigibilidade rdfs:subClassOf :ModalidadeContratacaoDireta.
+:FornecedorExclusivo rdfs:subClassOf :InviabilidadeDeCompeticao.
+:ProfissionalArtistico rdfs:subClassOf :InviabilidadeDeCompeticao.
+:ServicoTecnicoEspecializado rdfs:subClassOf :InviabilidadeDeCompeticao.
+:Credenciamento rdfs:subClassOf :InviabilidadeDeCompeticao.
+:AquisicaoDeImoveis rdfs:subClassOf :InviabilidadeDeCompeticao.
+:MotivoPrecosSuperiores rdfs:subClassOf :MotivoContratacaoDireta.
+:MotivoPorInexistenciaLicitante rdfs:subClassOf :MotivoContratacaoDireta.
+:MotivoPorPreco rdfs:subClassOf :MotivoContratacaoDireta.
+:EstudoTecnicoPreliminar rdfs:subClassOf :Documento.
+:TermoDeReferencia rdfs:subClassOf :Documento.
+:AnteProjeto rdfs:subClassOf :Documento.
+:ProjetoBasico rdfs:subClassOf :Documento.
+:ProjetoExecutivo rdfs:subClassOf :Documento.
+:MatrizDeRiscos rdfs:subClassOf :Documento.
+:AtaRegistroDePrecos rdfs:subClassOf :Documento.
+:PlanoDeContratacaoAnual rdfs:subClassOf :Documento.
+:AlternativaEscolhida rdfs:subClassOf :AlternativasPossiveis.
+:EditalLicitacao rdfs:subClassOf :Edital.
+:DocumentoDeFormalizacaoDeDemamanda rdfs:subClassOf :Documento.
+:Edital rdfs:subClassOf :Documento.
+:Avaliacao rdfs:subClassOf :Documento.
+[ rdf:type owl:AllDisjointClasses ] owl:members (:GovernoFederal :GovernoMunicipal :GovernoEstadual).
+:Governo owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:unionOf (:GovernoFederal :GovernoMunicipal :GovernoEstadual)
+].
+:Autor owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:unionOf (:AutorCorporativo :AutorPessoaFisica)
+].
+:nome_3 rdfs:domain :PessoaFisica;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "nome"@en.
+:cpf rdfs:domain :PessoaFisica;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "cpf"@en.
+:dataNascimento rdfs:domain :PessoaFisica;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "dataNascimento"@en.
+:matricula rdfs:domain :Servidor;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "matricula"@en.
+:dataAdminissao rdfs:domain :Servidor;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "dataAdminissao"@en.
+:dataDemissao rdfs:domain :Servidor;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "dataDemissao"@en.
+:cnpj rdfs:domain :PessoaJuridica;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "cnpj"@en.
+:nomeFantasia rdfs:domain :PessoaJuridica;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "nomeFantasia"@en.
+:nome rdfs:domain :PessoaJuridica;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "nome"@en.
+:dataCasamento rdfs:domain :Casamento;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "dataCasamento"@en.
+:nomeOrgao rdfs:domain :Orgao;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "nomeOrgao"@en.
+:cnpj_1 rdfs:domain :Orgao;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "cnpj"@en.
+:nomeEstado rdfs:domain :GovernoEstadual;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "nomeEstado"@en.
+:nomeMunicipio rdfs:domain :GovernoMunicipal;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "nomeMunicipio"@en.
+:nomeUnidade rdfs:domain :Unidade;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "nomeUnidade"@en;
+    rdfs:comment "Uma unidade organizacional é um departamento, seção ou qualquer outra unidade organizacional pertencente a um órgão."@en.
+:siglaUnidade rdfs:domain :Unidade;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "siglaUnidade"@en.
+:motivo rdfs:domain :MotivoContratacaoDireta;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "motivo"@en.
+:avaliacao_previa_do_bem rdfs:domain :AquisicaoDeImoveis;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "avaliacao_previa_do_bem"@en.
+:certificacao_inexistencia_imoveis_vagos rdfs:domain :AquisicaoDeImoveis;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "certificacao_inexistencia_imoveis_vagos"@en.
+:justificativa_singularidade_imovel rdfs:domain :AquisicaoDeImoveis;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "justificativa_singularidade_imovel"@en.
+:titulo_1 rdfs:domain :Documento;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "titulo"@en;
+    rdfs:comment "O título do documento."@en.
+:url rdfs:domain :Documento;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "url"@en;
+    rdfs:comment "URL para acessar o documento. Preferencialmente a URL pública. Preferir documentos em PDF ou outro formato aberto."@en.
+:quantidadeContratacao rdfs:domain :EstudoTecnicoPreliminar;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "quantidadeContratacao"@en;
+    rdfs:comment "O ETP de acordo com o art. 18, § 1º,\nIV - estimativas das quantidades para a contratação, acompanhadas das memórias de cálculo e dos documentos que lhes dão suporte, que considerem interdependências com outras contratações, de modo a possibilitar economia de escala;"@en.
+:necessidadeDaContratacao rdfs:domain :EstudoTecnicoPreliminar;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "necessidadeDaContratacao"@en;
+    rdfs:comment "No Artigo 18 a fase preparatória necessita que:\nI - a descrição da necessidade da contratação fundamentada em estudo técnico preliminar que caracterize o interesse público envolvido;\nE na descrição do ETP é dito que:\n§ 1º O estudo técnico preliminar a que se refere o inciso I do caput deste artigo deverá evidenciar o problema a ser resolvido e a sua melhor solução, de modo a permitir a avaliação da viabilidade técnica e econômica da contratação, e conterá os seguintes elementos:\nI - descrição da necessidade da contratação, considerado o problema a ser resolvido sob a perspectiva do interesse público;"@en.
+:solucao rdfs:domain :EstudoTecnicoPreliminar;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "solucao"@en;
+    rdfs:comment "VII - descrição da solução como um todo, inclusive das exigências relacionadas à manutenção e à assistência técnica, quando for o caso;"@en.
+:necessidadeContratacaoManutencao rdfs:domain :EstudoTecnicoPreliminar;
+    rdfs:range xsd:boolean;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "necessidadeContratacaoManutencao"@en;
+    rdfs:comment "Define se existe a necessidade da contratação de Manutenção."@en.
+:necessidadeContratacaoAssistenciaTecnica rdfs:domain :EstudoTecnicoPreliminar;
+    rdfs:range xsd:boolean;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "necessidadeContratacaoAssistenciaTecnica"@en;
+    rdfs:comment "Define se existe a necessidade da Contratação de Assistência Técnica"@en.
+:definicaoDeObjeto rdfs:domain :TermoDeReferencia;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "definicaoDeObjeto"@en.
+:prazoDeContrato rdfs:domain :TermoDeReferencia;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "prazoDeContrato"@en;
+    rdfs:comment "Art 6.\nXXIII \na) definição do objeto, incluídos sua natureza, os quantitativos, o prazo do contrato e, se for o caso, a possibilidade de sua prorrogação."@en.
+:prorrogavel rdfs:domain :TermoDeReferencia;
+    rdfs:range xsd:boolean;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "prorrogavel"@en.
+:ano rdfs:domain :PlanoDeContratacaoAnual;
+    rdfs:range xsd:int;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "ano"@en.
+:descricao_2 rdfs:domain :AlternativasPossiveis;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "descricao"@en.
+:justificativa rdfs:domain :AlternativaEscolhida;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "justificativa"@en;
+    rdfs:comment "A justificativa técnica e econômica da escolha do tipo de solução a contratar;"@en.
+:exigePercentualMinimo rdfs:domain :EditalLicitacao;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "exigePercentualMinimo"@en.
+:justificativaDaNecessidade rdfs:domain :DocumentoDeFormalizacaoDeDemamanda;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "justificativaDaNecessidade"@en.
+:DescricaoSucinta rdfs:domain :DocumentoDeFormalizacaoDeDemamanda;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "DescricaoSucinta"@en.
+:Quantidade rdfs:domain :DocumentoDeFormalizacaoDeDemamanda;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Quantidade"@en.
+:EstimativaDeValor rdfs:domain :DocumentoDeFormalizacaoDeDemamanda;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "Estimativa de Valor"@en.
+:DataPretendida rdfs:domain :DocumentoDeFormalizacaoDeDemamanda;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "DataPretendida"@en.
+:GrauPrioridade rdfs:domain :DocumentoDeFormalizacaoDeDemamanda;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "GrauPrioridade"@en.
+:contratacaoTI rdfs:domain :Transacao;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "contratacaoTI"@en;
+    rdfs:comment "A contratação de TI continua sendo, em tese, uma contratação de bens (hardware, software) ou de serviços (desenvolvimento, sustentação, nuvem etc.), mas a Lei 14.133 e a regulamentação infralegal trataram TI como categoria com complexidade própria, que exige planejamento, governança e documentos específicos, diferentes do trivial “compra” ou “serviço”.\n​"@en.
+:parcelamento rdfs:domain :JustificativaParcelamento;
+    rdfs:range xsd:boolean;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "parcelamento"@en;
+    rdfs:comment "Se o estudo técnico preliminar opta pelo parcelamento ou não do item."@en.
+:justificativa_1 rdfs:domain :JustificativaParcelamento;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "justificativa"@en.
+:qualificacaoMinima rdfs:domain :CondicoesConcurso;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "qualificacaoMinima"@en.
+:diretrizes rdfs:domain :CondicoesConcurso;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "diretrizes"@en.
+:condicoesDeRealizacao rdfs:domain :CondicoesConcurso;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "condicoesDeRealizacao"@en.
+:edital rdfs:domain :CondicoesConcurso;
+    rdfs:range :Edital;
+    rdf:type owl:ObjectProperty;
+    rdfs:label "edital"@en.
+:descricao_3 rdfs:domain :Item;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "descricao"@en.
+:quantidade rdfs:domain :Item;
+    rdfs:range xsd:int;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "quantidade"@en.
+:valorTotal rdfs:domain :Item;
+    rdfs:range xsd:float;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "valorTotal"@en.
+:nome_1 rdfs:domain :RespostaRisco;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "nome"@en;
+    rdfs:comment "Um Identificador ou nome a resposta ao risco."@en.
+:descricao rdfs:domain :RespostaRisco;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "descricao"@en;
+    rdfs:comment "Descrição da resposta ao Evento de Risco. Descreverá qual ação será realizada."@en.
+:nome_2 rdfs:domain :EventoDeRisco;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "nome"@en;
+    rdfs:comment "Um nome para identificar o Evento de Risco."@en.
+:descricao_1 rdfs:domain :EventoDeRisco;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "descricao"@en;
+    rdfs:comment "Uma descrição do evento de risco com detalhes do objeto ou objetivo em risco, qual a vulnerabilidade ou habilitador de risco."@en.
+:url_1 rdfs:domain :RecursoDeMidiaVirtual;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "url"@en.
+:idioma rdfs:domain :RecursoDeMidiaVirtual;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "idioma"@en.
+:titulo rdfs:domain :RecursoDeMidiaVirtual;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "titulo"@en.
+:idDocumento rdfs:domain :DocumentoSEI;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "idDocumento"@en.
+:paginas rdfs:domain :DocumentoSEI;
+    rdfs:range xsd:int;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "paginas"@en.
+:formato rdfs:domain :DocumentoSEI;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "formato"@en.
+:url_2 rdfs:domain :PaginaWEB;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "url"@en.
+:numeroProcesso rdfs:domain :ProcessoSEI;
+    rdfs:range xsd:string;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "numeroProcesso"@en.
+:criterioJulgamentoHasConcorrencia rdf:type owl:ObjectProperty;
+    rdfs:domain :CriterioJulgamento;
+    rdfs:range :Concorrencia.
+:leilaoHasCriterioJulgamento rdf:type owl:ObjectProperty;
+    rdfs:domain :Leilao;
+    rdfs:range :CriterioJulgamento.
+:condicoesConcursoHasPremio rdf:type owl:ObjectProperty;
+    rdfs:domain :CondicoesConcurso;
+    rdfs:range :Premio.
+:leilaoHasLeiloeiro rdf:type owl:ObjectProperty;
+    rdfs:domain :Leilao;
+    rdfs:range :Leiloeiro.
+:transacaoHasProcessoLicitatorio rdf:type owl:ObjectProperty;
+    rdfs:domain :Transacao;
+    rdfs:range :ProcessoLicitatrio.
+:ofereceProposta rdf:type owl:ObjectProperty;
+    rdfs:domain :Licitante;
+    rdfs:range :Proposta;
+    rdfs:label "ofereceProposta"@en.
+:propostasOferecidas rdf:type owl:ObjectProperty;
+    rdfs:domain :ProcessoLicitatrio;
+    rdfs:range :Proposta;
+    rdfs:label "propostasOferecidas"@en.
+:propostaVencedora rdf:type owl:ObjectProperty;
+    rdfs:domain :ProcessoLicitatrio;
+    rdfs:range :Proposta;
+    rdfs:label "propostaVencedora"@en.
+:licitacaoEmFaseDePreparacaoHasEstudoTecnicoPreliminar rdf:type owl:ObjectProperty;
+    rdfs:domain :LicitacaoEmFaseDePreparacao;
+    rdfs:range :EstudoTecnicoPreliminar.
+:licitacaoEmFaseDePreparacaoHasModalidadeLicitacao rdf:type owl:ObjectProperty;
+    rdfs:domain :LicitacaoEmFaseDePreparacao;
+    rdfs:range :ModalidadeLicitacao.
+:transacaoHasProposta rdf:type owl:ObjectProperty;
+    rdfs:domain :Transacao;
+    rdfs:range :Proposta.
+:bemHasCompra rdf:type owl:ObjectProperty;
+    rdfs:domain :Bem;
+    rdfs:range :Compra.
+:alienacaoHasBem rdf:type owl:ObjectProperty;
+    rdfs:domain :Alienacao;
+    rdfs:range :Bem;
+    rdfs:label ""@en;
+    rdfs:comment "Lei 14.133/2021. \nAcesso dia 02 de Dezembro de 2025. \n\nArt. 76. A alienação de bens da Administração Pública, subordinada à existência de interesse público devidamente justificado, será precedida de avaliação"@en.
+:demandante rdf:type owl:ObjectProperty;
+    rdfs:domain :ProcessoLicitatrio;
+    rdfs:range :Unidade;
+    rdfs:label "demandante"@en.
+:justificativaParcelamentoHasEstudoTecnicoPreliminar rdf:type owl:ObjectProperty;
+    rdfs:domain :JustificativaParcelamento;
+    rdfs:range :EstudoTecnicoPreliminar.
+:condicoesConcursoHasConcurso rdf:type owl:ObjectProperty;
+    rdfs:domain :CondicoesConcurso;
+    rdfs:range :Concurso.
+:itemHasTransacao rdf:type owl:ObjectProperty;
+    rdfs:domain :Item;
+    rdfs:range :Transacao.
+:pregoeiroHasPregao rdf:type owl:ObjectProperty;
+    rdfs:domain :Pregoeiro;
+    rdfs:range :Pregao.
+:manifestadoPor rdf:type owl:ObjectProperty;
+    rdfs:domain :Vulnerabilidade;
+    rdfs:range :EventoDeRisco;
+    rdfs:label "manifestadoPor"@en.
+:sujeitoDoRiscoHasEventoDeRisco rdf:type owl:ObjectProperty;
+    rdfs:domain :SujeitoDoRisco;
+    rdfs:range :EventoDeRisco.
+:inerente_1 rdf:type owl:ObjectProperty;
+    rdfs:domain :Vulnerabilidade;
+    rdfs:range :ObjetoEmRisco;
+    rdfs:label "inerente"@en.
+:eventoDeRiscoHasObjetodeAmeaca rdf:type owl:ObjectProperty;
+    rdfs:domain :EventoDeRisco;
+    rdfs:range :ObjetodeAmeaa.
+:eventoDeRiscoHasHabilitadorDeRisco rdf:type owl:ObjectProperty;
+    rdfs:domain :EventoDeRisco;
+    rdfs:range :HabilitadorDeRisco.
+:eventoDeRiscoHasObjetoEmRisco rdf:type owl:ObjectProperty;
+    rdfs:domain :EventoDeRisco;
+    rdfs:range :ObjetoEmRisco.
+:inerente rdf:type owl:ObjectProperty;
+    rdfs:domain :Vulnerabilidade;
+    rdfs:range :HabilitadorDeRisco;
+    rdfs:label "inerente"@en.
+:gravidadeImpactoHasEventoDeRisco rdf:type owl:ObjectProperty;
+    rdfs:domain :GravidadeImpacto;
+    rdfs:range :EventoDeRisco.
+:probabilidadeHasEventoDeRisco rdf:type owl:ObjectProperty;
+    rdfs:domain :Probabilidade;
+    rdfs:range :EventoDeRisco.
+:respostaRiscoHasEventoDeRisco rdf:type owl:ObjectProperty;
+    rdfs:domain :RespostaRisco;
+    rdfs:range :EventoDeRisco.
+:casadoCom rdf:type owl:ObjectProperty;
+    rdfs:domain :Conjugue;
+    rdfs:range :Conjugue;
+    rdfs:label "casadoCom"@en;
+    rdf:type gufo:MaterialRelationshipType.
+:autoridadeCompetenteHasAutorizacao rdf:type owl:ObjectProperty;
+    rdfs:domain :AutoridadeCompetente;
+    rdfs:range :Autorizacao.
+:autoridadeCompetenteHasAtoDesignacao rdf:type owl:ObjectProperty;
+    rdfs:domain :AutoridadeCompetente;
+    rdfs:range :AtoDesignacao.
+:atoDesignacaoHasAgenteDeContratacao rdf:type owl:ObjectProperty;
+    rdfs:domain :AtoDesignacao;
+    rdfs:range :AgenteDeContratacao.
+:substituto rdf:type owl:ObjectProperty;
+    rdfs:domain :AgenteDeContratacao;
+    rdfs:range :AgenteContratacaoSubstituo.
+:equipeApoioHasAutoridadeCompetente rdf:type owl:ObjectProperty;
+    rdfs:domain :EquipeApoio;
+    rdfs:range :AutoridadeCompetente.
+:unidadeHasOrgao rdf:type owl:ObjectProperty;
+    rdfs:domain :Unidade;
+    rdfs:range :Orgao.
+:unidadeHasUnidade rdf:type owl:ObjectProperty;
+    rdfs:domain :Unidade;
+    rdfs:range :Unidade.
+:unidadeResponsavelDemanda rdf:type owl:ObjectProperty;
+    rdfs:domain :Unidade;
+    rdfs:range :DocumentoDeFormalizacaoDeDemamanda;
+    rdfs:label "unidadeResponsavelDemanda"@en.
+:pessoaResponsavelDemanda rdf:type owl:ObjectProperty;
+    rdfs:domain :AgentePublico;
+    rdfs:range :DocumentoDeFormalizacaoDeDemamanda;
+    rdfs:label "pessoaResponsavelDemanda"@en;
+    rdfs:comment "VIII - nome da área requisitante ou técnica com a identificação do responsável. \nFonte: DECRETO Nº 10.947, DE 25 DE JANEIRO DE 2022"@en.
+:contratanteHasContratado rdf:type owl:ObjectProperty;
+    rdfs:domain :Contratante;
+    rdfs:range :Contratado;
+    rdf:type gufo:MaterialRelationshipType.
+:processoDeContratacaoDiretaHasAutorizacao rdf:type owl:ObjectProperty;
+    rdfs:domain :ProcessoDeContratacaoDireta;
+    rdfs:range :Autorizacao.
+:inviabilidadeDeCompeticaoHasInexigibilidade rdf:type owl:ObjectProperty;
+    rdfs:domain :InviabilidadeDeCompeticao;
+    rdfs:range :Inexigibilidade.
+:dfd rdf:type owl:ObjectProperty;
+    rdfs:domain :ProcessoDeContratacaoDireta;
+    rdfs:range :DocumentoDeFormalizacaoDeDemamanda;
+    rdfs:label ""@en.
+:descricaoDaNecessidadeHasEstudoTecnicoPreliminar rdf:type owl:ObjectProperty;
+    rdfs:domain :DescricaoDaNecessidade;
+    rdfs:range :EstudoTecnicoPreliminar.
+:estudoTecnicoPreliminarHasRequisitosDaContratacao rdf:type owl:ObjectProperty;
+    rdfs:domain :EstudoTecnicoPreliminar;
+    rdfs:range :RequisitosDaContratacao.
+:alternativasPossiveisHasEstudoTecnicoPreliminar rdf:type owl:ObjectProperty;
+    rdfs:domain :AlternativasPossiveis;
+    rdfs:range :EstudoTecnicoPreliminar.
+:autores rdf:type owl:ObjectProperty;
+    rdfs:domain :Documento;
+    rdfs:range :Autor.
+:avaliacaoHasBem rdf:type owl:ObjectProperty;
+    rdfs:domain :Avaliacao;
+    rdfs:range :Bem.
+:riscos rdf:type owl:ObjectProperty;
+    rdfs:domain :MatrizDeRiscos;
+    rdfs:range :EventoDeRisco;
+    rdfs:label "riscos"@en.
+:correlatos rdf:type owl:ObjectProperty;
+    rdfs:domain :EstudoTecnicoPreliminar;
+    rdfs:range :ProcessoLicitatrio;
+    rdfs:label "correlatos"@en;
+    rdfs:comment "Conceito de contratações correlatas: Contratações correlatas são aquelas que guardam relação com o objeto principal (similaridade ou complementaridade), mas não são indispensáveis para que este seja plenamente utilizado.​ Exemplo clássico: em um agenciamento de passagens aéreas, serviços de transporte terrestre, hospedagem e seguro viagem são correlatos, pois se relacionam à viagem, mas a passagem aérea pode ser utilizada sem necessariamente contratar todos os demais.​ "@en.
+:dependentes rdf:type owl:ObjectProperty;
+    rdfs:domain :EstudoTecnicoPreliminar;
+    rdfs:range :ProcessoLicitatrio;
+    rdfs:label "dependentes"@en;
+    rdfs:comment "Conceito de contratações interdependentes: Contratações interdependentes são aquelas cuja execução depende, técnica ou funcionalmente, de outra contratação, de modo que o objeto principal não atinge sua finalidade sem elas.​ Em termos doutrinários, são contratações em que a execução de um contrato pode afetar ou ser afetada pela execução do outro, gerando verdadeira relação de dependência entre os objetos.​"@en.
+:similares rdf:type owl:ObjectProperty;
+    rdfs:domain :EstudoTecnicoPreliminar;
+    rdfs:range :ProcessoLicitatrio;
+    rdfs:label "similares"@en;
+    rdfs:comment "Processos similares servem para fundamentar a construção do Estudo Técnico Preliminar."@en.
+:matrizDeRiscosHasEstudoTecnicoPreliminar rdf:type owl:ObjectProperty;
+    rdfs:domain :MatrizDeRiscos;
+    rdfs:range :EstudoTecnicoPreliminar.
+:dependente rdf:type owl:ObjectProperty;
+    rdfs:domain :DocumentoDeFormalizacaoDeDemamanda;
+    rdfs:range :DocumentoDeFormalizacaoDeDemamanda;
+    rdfs:label "dependente"@en.
+:ModalidadeLicitacao rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :ProcessoLicitatrio
+].
+:ProcessoLicitatrio rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:inheresIn;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :ModalidadeLicitacao
+].
+:EditalLicitacao rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :IndiceReajustamentoDePreco
+].
+:IndiceReajustamentoDePreco rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:inheresIn;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :EditalLicitacao
+].
+:Contratado rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:mediates ];
+  owl:someValuesFrom :Contrato
+].
+:Contrato rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:mediates;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Contratado
+], [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:mediates ];
+  owl:someValuesFrom :Contratante
+].
+:Contratante rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:mediates;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Contrato
+].
+:AgenteDeContratacao rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:isCollectionMemberOf ];
+  owl:someValuesFrom :EquipeApoio
+].
+:EquipeApoio rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:isCollectionMemberOf;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :AgenteDeContratacao
+].
+:Casamento rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:mediates ];
+  owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger;
+  owl:onClass :Conjugue
+].
+:Conjugue rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:mediates;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Casamento
+].
+:ModalidadeContratacaoDireta rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :ProcessoDeContratacaoDireta
+].
+:ProcessoDeContratacaoDireta rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:inheresIn;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :ModalidadeContratacaoDireta
+].
+:ModalidadeContratacaoDireta rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :MotivoContratacaoDireta
+].
+:MotivoContratacaoDireta rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:inheresIn;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :ModalidadeContratacaoDireta
+].
+:RecursoDeMidiaVirtual rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:manifestedIn ];
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Documento
+].
