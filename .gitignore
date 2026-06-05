@@ -1,4 +1,5 @@
 *.vpp.bak
-*.vpp.bak_*
+*.vpp.bak*
 *.vpp.lck
-.Licitacao14133.vpp.lck
+.Licitacao14133.vpp.lckinsmo
+*.lck
