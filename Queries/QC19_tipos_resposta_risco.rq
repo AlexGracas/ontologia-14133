@@ -1,0 +1,55 @@
+# QC19 — Quais são os tipos de respostas aos riscos, como mitigar, aceitar, evitar ou compartilhar?
+#
+# Ontologia: Licitacao14133-2026-08-25.ttl (exportada em 2026-08-25)
+#
+
+# ======================================================================
+# Definição de RespostaRisco
+# ======================================================================
+PREFIX : <http://university.edu/licitacao14133#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+# Definição (rótulo e descrição) da(s) classe(s) central(is) para esta pergunta.
+SELECT ?classe ?rotulo ?descricao
+WHERE {
+  VALUES ?classe { :RespostaRisco }
+  ?classe rdfs:label ?rotulo .
+  OPTIONAL { ?classe rdfs:comment ?descricao }
+}
+
+# ======================================================================
+# Tipos de resposta a risco mapeados (subclasses de RespostaRisco)
+# ======================================================================
+PREFIX : <http://university.edu/licitacao14133#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+# Tipos de resposta a risco (subclasses) de :RespostaRisco (fecho transitivo via rdfs:subClassOf).
+SELECT ?classe ?rotulo
+WHERE {
+  ?classe rdfs:subClassOf+ :RespostaRisco .
+  OPTIONAL { ?classe rdfs:label ?rotulo }
+}
+ORDER BY ?classe
+
+# ======================================================================
+# Instâncias: resposta adotada para cada tipo de evento de risco (requer dados ABox)
+# ======================================================================
+PREFIX : <http://university.edu/licitacao14133#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+SELECT ?resposta ?tipoResposta ?risco ?descricao
+WHERE {
+  ?resposta :respostaRiscoHasTipoDeEventoDeRisco ?risco ;
+            a ?tipoResposta .
+  FILTER(?tipoResposta != owl:NamedIndividual)
+  OPTIONAL { ?resposta :descricao ?descricao }
+}

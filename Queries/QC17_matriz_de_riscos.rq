@@ -1,0 +1,70 @@
+# QC17 — Quais elementos compõem a matriz de riscos de uma contratação?
+#
+# Ontologia: Licitacao14133-2026-08-25.ttl (exportada em 2026-08-25)
+#
+
+# ======================================================================
+# Definição da Matriz de Riscos e do Tipo de Evento de Risco
+# ======================================================================
+PREFIX : <http://university.edu/licitacao14133#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+# Definição (rótulo e descrição) da(s) classe(s) central(is) para esta pergunta.
+SELECT ?classe ?rotulo ?descricao
+WHERE {
+  VALUES ?classe { :MatrizDeRiscos :TipoDeEventoDeRisco }
+  ?classe rdfs:label ?rotulo .
+  OPTIONAL { ?classe rdfs:comment ?descricao }
+}
+
+# ======================================================================
+# Propriedades relacionadas ao Tipo de Evento de Risco (elementos que compõem cada risco)
+# ======================================================================
+PREFIX : <http://university.edu/licitacao14133#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+# Propriedades (de objeto e de dados) cujo domínio ou range é esta classe.
+SELECT ?propriedade ?tipoPropriedade ?dominio ?range
+WHERE {
+  ?propriedade rdf:type ?tipoPropriedade .
+  FILTER(?tipoPropriedade IN (owl:ObjectProperty, owl:DatatypeProperty))
+  {
+    ?propriedade rdfs:domain :TipoDeEventoDeRisco .
+    BIND(:TipoDeEventoDeRisco AS ?dominio)
+    OPTIONAL { ?propriedade rdfs:range ?range }
+  }
+  UNION
+  {
+    ?propriedade rdfs:range :TipoDeEventoDeRisco .
+    BIND(:TipoDeEventoDeRisco AS ?range)
+    OPTIONAL { ?propriedade rdfs:domain ?dominio }
+  }
+}
+ORDER BY ?propriedade
+
+# ======================================================================
+# Instâncias: composição de uma matriz de riscos específica (requer dados ABox)
+# ======================================================================
+PREFIX : <http://university.edu/licitacao14133#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+SELECT ?matriz ?risco ?habilitador ?objetoDeAmeaca ?objetoEmRisco ?probabilidade ?gravidade ?resposta
+WHERE {
+  ?matriz a :MatrizDeRiscos ;
+          :riscos ?risco .
+  OPTIONAL { ?risco :tipoDeEventoDeRiscoHasHabilitadorDeRisco ?habilitador }
+  OPTIONAL { ?risco :tipoDeEventoDeRiscoHasObjetodeAmeaca ?objetoDeAmeaca }
+  OPTIONAL { ?risco :tipoDeEventoDeRiscoHasObjetoEmRisco ?objetoEmRisco }
+  OPTIONAL { ?probabilidade :probabilidadeHasTipoDeEventoDeRisco ?risco }
+  OPTIONAL { ?gravidade :gravidadeImpactoHasTipoDeEventoDeRisco ?risco }
+  OPTIONAL { ?resposta :respostaRiscoHasTipoDeEventoDeRisco ?risco }
+}

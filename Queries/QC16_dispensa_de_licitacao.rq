@@ -1,0 +1,38 @@
+# QC16 — Quais situações e limites de valor se enquadram como dispensa de licitação?
+#
+# Ontologia: Licitacao14133-2026-08-25.ttl (exportada em 2026-08-25)
+#
+
+# ======================================================================
+# Definição da Dispensa de Licitação (a descrição inclui os valores-limite atualizados)
+# ======================================================================
+PREFIX : <http://university.edu/licitacao14133#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+# Definição (rótulo e descrição) da(s) classe(s) central(is) para esta pergunta.
+SELECT ?classe ?rotulo ?descricao
+WHERE {
+  VALUES ?classe { :DispensaDeLicitacao :ModalidadeContratacaoDireta }
+  ?classe rdfs:label ?rotulo .
+  OPTIONAL { ?classe rdfs:comment ?descricao }
+}
+
+# ======================================================================
+# Motivos de contratação direta mapeados (podem fundamentar também a dispensa)
+# ======================================================================
+PREFIX : <http://university.edu/licitacao14133#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+# Motivos de contratação direta (subclasses) de :MotivoContratacaoDireta (fecho transitivo via rdfs:subClassOf).
+SELECT ?classe ?rotulo
+WHERE {
+  ?classe rdfs:subClassOf+ :MotivoContratacaoDireta .
+  OPTIONAL { ?classe rdfs:label ?rotulo }
+}
+ORDER BY ?classe

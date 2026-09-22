@@ -1,0 +1,71 @@
+# QC11 — Quais são as modalidades de licitação mapeadas, como Pregão, Concorrência, Leilão, Concurso e Diálogo Competitivo?
+#
+# Ontologia: Licitacao14133-2026-08-25.ttl (exportada em 2026-08-25)
+#
+
+# ======================================================================
+# Definição de Disputa (gênero das modalidades) e de ModalidadeLicitacao
+# ======================================================================
+PREFIX : <http://university.edu/licitacao14133#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+# Definição (rótulo e descrição) da(s) classe(s) central(is) para esta pergunta.
+SELECT ?classe ?rotulo ?descricao
+WHERE {
+  VALUES ?classe { :Disputa :ModalidadeLicitacao }
+  ?classe rdfs:label ?rotulo .
+  OPTIONAL { ?classe rdfs:comment ?descricao }
+}
+
+# ======================================================================
+# Modalidades de licitação mapeadas (subclasses de Disputa)
+# ======================================================================
+PREFIX : <http://university.edu/licitacao14133#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+# Modalidades (subclasses de Disputa) de :Disputa (fecho transitivo via rdfs:subClassOf).
+SELECT ?classe ?rotulo
+WHERE {
+  ?classe rdfs:subClassOf+ :Disputa .
+  OPTIONAL { ?classe rdfs:label ?rotulo }
+}
+ORDER BY ?classe
+
+# ======================================================================
+# Propriedades que ligam a Licitação à modalidade/disputa
+# ======================================================================
+PREFIX : <http://university.edu/licitacao14133#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+SELECT ?propriedade ?dominio ?range
+WHERE {
+  VALUES ?propriedade { :licitacaoHasDisputa :licitacaoHasModalidadeLicitacao }
+  ?propriedade rdfs:domain ?dominio ;
+               rdfs:range ?range .
+}
+
+# ======================================================================
+# Instâncias: modalidade/disputa adotada em cada licitação (requer dados ABox)
+# ======================================================================
+PREFIX : <http://university.edu/licitacao14133#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+SELECT ?licitacao ?disputa ?tipoDisputa
+WHERE {
+  ?licitacao a :Licitacao ;
+             :licitacaoHasDisputa ?disputa .
+  ?disputa a ?tipoDisputa .
+  FILTER(?tipoDisputa != owl:NamedIndividual)
+}

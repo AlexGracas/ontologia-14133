@@ -1,0 +1,65 @@
+# QC10 — Quais são os parâmetros definidos no Plano de Contratação Anual?
+#
+# Ontologia: Licitacao14133-2026-08-25.ttl (exportada em 2026-08-25)
+#
+
+# ======================================================================
+# Definição do Plano de Contratação Anual
+# ======================================================================
+PREFIX : <http://university.edu/licitacao14133#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+# Definição (rótulo e descrição) da(s) classe(s) central(is) para esta pergunta.
+SELECT ?classe ?rotulo ?descricao
+WHERE {
+  VALUES ?classe { :PlanoDeContratacaoAnual }
+  ?classe rdfs:label ?rotulo .
+  OPTIONAL { ?classe rdfs:comment ?descricao }
+}
+
+# ======================================================================
+# Propriedades do Plano de Contratação Anual
+# ======================================================================
+PREFIX : <http://university.edu/licitacao14133#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+# Propriedades (de objeto e de dados) cujo domínio ou range é esta classe.
+SELECT ?propriedade ?tipoPropriedade ?dominio ?range
+WHERE {
+  ?propriedade rdf:type ?tipoPropriedade .
+  FILTER(?tipoPropriedade IN (owl:ObjectProperty, owl:DatatypeProperty))
+  {
+    ?propriedade rdfs:domain :PlanoDeContratacaoAnual .
+    BIND(:PlanoDeContratacaoAnual AS ?dominio)
+    OPTIONAL { ?propriedade rdfs:range ?range }
+  }
+  UNION
+  {
+    ?propriedade rdfs:range :PlanoDeContratacaoAnual .
+    BIND(:PlanoDeContratacaoAnual AS ?range)
+    OPTIONAL { ?propriedade rdfs:domain ?dominio }
+  }
+}
+ORDER BY ?propriedade
+
+# ======================================================================
+# Instâncias: ano de referência de cada Plano de Contratação Anual (requer dados ABox)
+# ======================================================================
+PREFIX : <http://university.edu/licitacao14133#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+SELECT ?plano ?ano
+WHERE {
+  ?plano a :PlanoDeContratacaoAnual ;
+         :ano ?ano .
+}
+ORDER BY ?ano

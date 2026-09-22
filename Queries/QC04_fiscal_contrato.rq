@@ -1,0 +1,66 @@
+# QC4 — Quais são as atribuições e responsabilidades do fiscal do contrato na execução contratual?
+#
+# Ontologia: Licitacao14133-2026-08-25.ttl (exportada em 2026-08-25)
+#
+
+# ======================================================================
+# Definição do fiscal do contrato
+# ======================================================================
+PREFIX : <http://university.edu/licitacao14133#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+# Definição (rótulo e descrição) da(s) classe(s) central(is) para esta pergunta.
+SELECT ?classe ?rotulo ?descricao
+WHERE {
+  VALUES ?classe { :FiscalContrato }
+  ?classe rdfs:label ?rotulo .
+  OPTIONAL { ?classe rdfs:comment ?descricao }
+}
+
+# ======================================================================
+# Hierarquia: FiscalContrato como especialização de AgenteDeContratacao
+# ======================================================================
+PREFIX : <http://university.edu/licitacao14133#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+# Superclasses de :FiscalContrato (fecho transitivo via rdfs:subClassOf).
+SELECT ?classe ?rotulo
+WHERE {
+  :FiscalContrato rdfs:subClassOf+ ?classe .
+  OPTIONAL { ?classe rdfs:label ?rotulo }
+}
+ORDER BY ?classe
+
+# ======================================================================
+# Propriedades relacionadas ao fiscal do contrato
+# ======================================================================
+PREFIX : <http://university.edu/licitacao14133#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+# Propriedades (de objeto e de dados) cujo domínio ou range é esta classe.
+SELECT ?propriedade ?tipoPropriedade ?dominio ?range
+WHERE {
+  ?propriedade rdf:type ?tipoPropriedade .
+  FILTER(?tipoPropriedade IN (owl:ObjectProperty, owl:DatatypeProperty))
+  {
+    ?propriedade rdfs:domain :FiscalContrato .
+    BIND(:FiscalContrato AS ?dominio)
+    OPTIONAL { ?propriedade rdfs:range ?range }
+  }
+  UNION
+  {
+    ?propriedade rdfs:range :FiscalContrato .
+    BIND(:FiscalContrato AS ?range)
+    OPTIONAL { ?propriedade rdfs:domain ?dominio }
+  }
+}
+ORDER BY ?propriedade

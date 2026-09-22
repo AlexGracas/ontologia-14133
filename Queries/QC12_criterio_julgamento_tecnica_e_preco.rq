@@ -1,0 +1,61 @@
+# QC12 — Quais são os critérios de julgamento aplicáveis, para contratações por TécnicaEPreço do serviço <X>?
+#
+# Ontologia: Licitacao14133-2026-08-25.ttl (exportada em 2026-08-25)
+#
+
+# ======================================================================
+# Definição de CriterioJulgamento e de TecnicaEPreco
+# ======================================================================
+PREFIX : <http://university.edu/licitacao14133#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+# Definição (rótulo e descrição) da(s) classe(s) central(is) para esta pergunta.
+SELECT ?classe ?rotulo ?descricao
+WHERE {
+  VALUES ?classe { :CriterioJulgamento :TecnicaEPreco }
+  ?classe rdfs:label ?rotulo .
+  OPTIONAL { ?classe rdfs:comment ?descricao }
+}
+
+# ======================================================================
+# Critérios de julgamento mapeados (subclasses de CriterioJulgamento)
+# ======================================================================
+PREFIX : <http://university.edu/licitacao14133#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+# Critérios de julgamento (subclasses) de :CriterioJulgamento (fecho transitivo via rdfs:subClassOf).
+SELECT ?classe ?rotulo
+WHERE {
+  ?classe rdfs:subClassOf+ :CriterioJulgamento .
+  OPTIONAL { ?classe rdfs:label ?rotulo }
+}
+ORDER BY ?classe
+
+# ======================================================================
+# # NOTA: na versão atual da ontologia, o único vínculo explícito de CriterioJulgamento
+# a um processo é via Leilao (leilaoHasCriterioJulgamento) — não há ainda uma propriedade
+# genérica Licitacao->CriterioJulgamento nem um atributo de nome/identificação em ObjetoLicitado.
+# A consulta abaixo é o padrão a usar assim que esses vínculos existirem nos dados (ABox);
+# substitua "<X>" pelo identificador/descrição do serviço.
+# ======================================================================
+PREFIX : <http://university.edu/licitacao14133#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+SELECT ?licitacao ?criterioJulgamento ?objetoLicitado
+WHERE {
+  ?licitacao a :Licitacao ;
+             :licitacaoHasDisputa ?disputa .
+  ?disputa :leilaoHasCriterioJulgamento ?criterioJulgamento .
+  ?criterioJulgamento a :TecnicaEPreco .
+  ?objetoLicitado :attribute ?descricaoObjeto .
+  FILTER(CONTAINS(LCASE(STR(?descricaoObjeto)), LCASE("<X>")))
+}

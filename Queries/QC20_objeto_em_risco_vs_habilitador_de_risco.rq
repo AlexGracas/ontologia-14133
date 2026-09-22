@@ -1,0 +1,52 @@
+# QC20 — O que diferencia o objeto em risco do habilitador de risco?
+#
+# Ontologia: Licitacao14133-2026-08-25.ttl (exportada em 2026-08-25)
+#
+
+# ======================================================================
+# Definições comparadas de ObjetoEmRisco e HabilitadorDeRisco
+# ======================================================================
+PREFIX : <http://university.edu/licitacao14133#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+# Definição (rótulo e descrição) da(s) classe(s) central(is) para esta pergunta.
+SELECT ?classe ?rotulo ?descricao
+WHERE {
+  VALUES ?classe { :ObjetoEmRisco :HabilitadorDeRisco }
+  ?classe rdfs:label ?rotulo .
+  OPTIONAL { ?classe rdfs:comment ?descricao }
+}
+
+# ======================================================================
+# Propriedades que ligam cada um ao Tipo de Evento de Risco e à Vulnerabilidade
+# ======================================================================
+PREFIX : <http://university.edu/licitacao14133#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+SELECT ?propriedade ?dominio ?range
+WHERE {
+  VALUES ?propriedade { :tipoDeEventoDeRiscoHasObjetoEmRisco :tipoDeEventoDeRiscoHasHabilitadorDeRisco :inerente :inerente_1 }
+  ?propriedade rdfs:domain ?dominio ;
+               rdfs:range ?range .
+}
+
+# ======================================================================
+# Instâncias: objeto em risco e habilitador de risco associados a um mesmo tipo de evento de risco (requer dados ABox)
+# ======================================================================
+PREFIX : <http://university.edu/licitacao14133#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+SELECT ?risco ?objetoEmRisco ?habilitador
+WHERE {
+  ?risco :tipoDeEventoDeRiscoHasObjetoEmRisco ?objetoEmRisco ;
+         :tipoDeEventoDeRiscoHasHabilitadorDeRisco ?habilitador .
+}

@@ -1,0 +1,67 @@
+# QC5 — Quem é considerado o licitante no processo de licitação <X>?
+#
+# Ontologia: Licitacao14133-2026-08-25.ttl (exportada em 2026-08-25)
+#
+
+# ======================================================================
+# Definição de Licitante e suas especializações
+# ======================================================================
+PREFIX : <http://university.edu/licitacao14133#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+# Definição (rótulo e descrição) da(s) classe(s) central(is) para esta pergunta.
+SELECT ?classe ?rotulo ?descricao
+WHERE {
+  VALUES ?classe { :Licitante :LicitantePessoaFisica :LicitantePessoaJuridica }
+  ?classe rdfs:label ?rotulo .
+  OPTIONAL { ?classe rdfs:comment ?descricao }
+}
+
+# ======================================================================
+# Propriedades relacionadas ao licitante
+# ======================================================================
+PREFIX : <http://university.edu/licitacao14133#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+# Propriedades (de objeto e de dados) cujo domínio ou range é esta classe.
+SELECT ?propriedade ?tipoPropriedade ?dominio ?range
+WHERE {
+  ?propriedade rdf:type ?tipoPropriedade .
+  FILTER(?tipoPropriedade IN (owl:ObjectProperty, owl:DatatypeProperty))
+  {
+    ?propriedade rdfs:domain :Licitante .
+    BIND(:Licitante AS ?dominio)
+    OPTIONAL { ?propriedade rdfs:range ?range }
+  }
+  UNION
+  {
+    ?propriedade rdfs:range :Licitante .
+    BIND(:Licitante AS ?range)
+    OPTIONAL { ?propriedade rdfs:domain ?dominio }
+  }
+}
+ORDER BY ?propriedade
+
+# ======================================================================
+# Consulta parametrizada de instâncias: licitantes que ofereceram proposta no processo <X>
+# Substitua "<X>" pelo número do processo licitatório desejado (requer dados ABox).
+# ======================================================================
+PREFIX : <http://university.edu/licitacao14133#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+SELECT ?licitante ?proposta
+WHERE {
+  ?processo a :ProcessoLicitatrio ;
+            :numeroProcesso "<X>" ;
+            :propostasOferecidas ?proposta .
+  ?licitante :ofereceProposta ?proposta .
+}

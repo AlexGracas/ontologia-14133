@@ -1,0 +1,66 @@
+# QC8 — O que deve ser incluído na definição do objeto dentro de um Termo de Referência?
+#
+# Ontologia: Licitacao14133-2026-08-25.ttl (exportada em 2026-08-25)
+#
+
+# ======================================================================
+# Definição do Termo de Referência
+# ======================================================================
+PREFIX : <http://university.edu/licitacao14133#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+# Definição (rótulo e descrição) da(s) classe(s) central(is) para esta pergunta.
+SELECT ?classe ?rotulo ?descricao
+WHERE {
+  VALUES ?classe { :TermoDeReferencia }
+  ?classe rdfs:label ?rotulo .
+  OPTIONAL { ?classe rdfs:comment ?descricao }
+}
+
+# ======================================================================
+# Propriedades do Termo de Referência (definição do objeto, prazo, prorrogabilidade)
+# ======================================================================
+PREFIX : <http://university.edu/licitacao14133#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+# Propriedades (de objeto e de dados) cujo domínio ou range é esta classe.
+SELECT ?propriedade ?tipoPropriedade ?dominio ?range
+WHERE {
+  ?propriedade rdf:type ?tipoPropriedade .
+  FILTER(?tipoPropriedade IN (owl:ObjectProperty, owl:DatatypeProperty))
+  {
+    ?propriedade rdfs:domain :TermoDeReferencia .
+    BIND(:TermoDeReferencia AS ?dominio)
+    OPTIONAL { ?propriedade rdfs:range ?range }
+  }
+  UNION
+  {
+    ?propriedade rdfs:range :TermoDeReferencia .
+    BIND(:TermoDeReferencia AS ?range)
+    OPTIONAL { ?propriedade rdfs:domain ?dominio }
+  }
+}
+ORDER BY ?propriedade
+
+# ======================================================================
+# Instâncias: definição de objeto de um Termo de Referência específico (requer dados ABox)
+# ======================================================================
+PREFIX : <http://university.edu/licitacao14133#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+SELECT ?termoDeReferencia ?definicaoDeObjeto ?prazoDeContrato ?prorrogavel
+WHERE {
+  ?termoDeReferencia a :TermoDeReferencia .
+  OPTIONAL { ?termoDeReferencia :definicaoDeObjeto ?definicaoDeObjeto }
+  OPTIONAL { ?termoDeReferencia :prazoDeContrato ?prazoDeContrato }
+  OPTIONAL { ?termoDeReferencia :prorrogavel ?prorrogavel }
+}

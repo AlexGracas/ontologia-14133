@@ -1,0 +1,58 @@
+# QC13 — Quais são as fases em sequência do processo licitatório, desde a fase preparatória até a fase de homologação?
+#
+# Ontologia: Licitacao14133-2026-08-25.ttl (exportada em 2026-08-25)
+#
+
+# ======================================================================
+# Definição da Licitação e de cada fase
+# ======================================================================
+PREFIX : <http://university.edu/licitacao14133#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+# Definição (rótulo e descrição) da(s) classe(s) central(is) para esta pergunta.
+SELECT ?classe ?rotulo ?descricao
+WHERE {
+  VALUES ?classe { :Licitacao :PreparacaoDaLicitacao :DivulgacaoDoEdital :HabilitacaoDaLicitacao :JulgamentoDaLicitacao :RecursosDaLicitacao :HomologacaoDaLicitacao }
+  ?classe rdfs:label ?rotulo .
+  OPTIONAL { ?classe rdfs:comment ?descricao }
+}
+
+# ======================================================================
+# Todas as fases da licitação mapeadas como propriedades de :Licitacao (licitacaoHas*)
+# ======================================================================
+PREFIX : <http://university.edu/licitacao14133#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+SELECT ?propriedade ?fase
+WHERE {
+  ?propriedade rdfs:domain :Licitacao ;
+               rdfs:range ?fase .
+  FILTER(STRSTARTS(STR(?propriedade), STR(:licitacaoHas)))
+}
+ORDER BY ?propriedade
+
+# ======================================================================
+# Instâncias: fases concretas de uma licitação específica (requer dados ABox)
+# ======================================================================
+PREFIX : <http://university.edu/licitacao14133#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+
+SELECT ?licitacao ?preparacao ?divulgacaoEdital ?habilitacao ?julgamento ?recursos ?homologacao
+WHERE {
+  ?licitacao a :Licitacao .
+  OPTIONAL { ?licitacao :licitacaoHasPreparacaoDaLicitacao ?preparacao }
+  OPTIONAL { ?licitacao :licitacaoHasDivulgacaoDoEdital ?divulgacaoEdital }
+  OPTIONAL { ?licitacao :licitacaoHasHabilitacaoDaLicitacao ?habilitacao }
+  OPTIONAL { ?licitacao :licitacaoHasJulgamentoDaLicitacao ?julgamento }
+  OPTIONAL { ?licitacao :licitacaoHasRecursosDaLicitacao ?recursos }
+  OPTIONAL { ?licitacao :licitacaoHasHomologacaoDaLicitacao ?homologacao }
+}
