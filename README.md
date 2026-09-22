@@ -20,11 +20,10 @@ verificação por perguntas de competência descrita abaixo.
 | Caminho | Conteúdo |
 |---|---|
 | `Licitacao14133.vpp` | Modelo-fonte no Visual Paradigm (diagramas de classes, notas, etc.) |
-| `Licitacao14133-2026-08-25.ttl` | Exportação mais recente da ontologia em OWL/Turtle |
-| `Licitacao14133.ttl` / `Licitacao14133.json` | Exportações anteriores (OWL/Turtle e JSON) |
+| `Licitacao14133.ttl` | Exportação mais recente da ontologia em OWL/Turtle |
+| `Licitacao14133.json` | Exportação anterior da ontologia em JSON |
 | `Class Diagram1.jpg` | Diagrama de classes geral do modelo |
 | `Class Diagram - Riscos.jpg` | Diagrama de classes do submodelo de gestão de riscos |
-| `catalog-v001.xml` | Catálogo XML usado pelo Visual Paradigm para resolução de imports |
 | `requisitos/` | Requisitos da ontologia — perguntas de competência (Markdown) |
 | `Queries/` | Consultas SPARQL que respondem às perguntas de competência |
 | `poster/` | Pôster em produção para a **OntoBras 2026** |
@@ -48,10 +47,7 @@ durante essa verificação.
 
 O pôster que apresenta este trabalho na OntoBras 2026 está em
 [`poster/Template_PosterOntobras2026_A02.pdf`](poster/Template_PosterOntobras2026_A02.pdf)
-(formato A0, versão em PDF pronta para impressão). Os arquivos-fonte editáveis
-em PowerPoint (`Template_PosterOntobras2026_A0.pptx` e
-`Template_PosterOntobras2026_A02.pptx`) permanecem na raiz do repositório
-enquanto o pôster está em elaboração.
+(formato A0, versão em PDF pronta para impressão).
 
 ## Ferramentas
 

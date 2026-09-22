@@ -2,7 +2,7 @@
 
 Este diretório contém uma consulta SPARQL (`.rq`) para cada uma das 20 perguntas de
 competência definidas em [`../requisitos/perguntas-competencia.md`](../requisitos/perguntas-competencia.md),
-construídas a partir do OWL exportado em `../Licitacao14133-2026-08-25.ttl`.
+construídas a partir do OWL exportado em `../Licitacao14133.ttl`.
 
 ## Como usar
 
@@ -28,7 +28,7 @@ Cada arquivo segue o mesmo padrão:
 
 ## Por que as consultas de instâncias retornam vazio hoje
 
-O arquivo `Licitacao14133-2026-08-25.ttl` contém apenas a **TBox** — 126 classes e
+O arquivo `Licitacao14133.ttl` contém apenas a **TBox** — 126 classes e
 suas propriedades — sem indivíduos (ABox). Todas as consultas foram validadas
 (sintaxe SPARQL 1.1 correta) e executadas contra o arquivo atual:
 
