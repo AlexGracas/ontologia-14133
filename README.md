@@ -21,9 +21,7 @@ verificação por perguntas de competência descrita abaixo.
 |---|---|
 | `Licitacao14133.vpp` | Modelo-fonte no Visual Paradigm (diagramas de classes, notas, etc.) |
 | `Licitacao14133.ttl` | Exportação mais recente da ontologia em OWL/Turtle |
-| `Licitacao14133.json` | Exportação anterior da ontologia em JSON |
-| `Class Diagram1.jpg` | Diagrama de classes geral do modelo |
-| `Class Diagram - Riscos.jpg` | Diagrama de classes do submodelo de gestão de riscos |
+| `pictures/` | Diagramas de classes exportados (visão geral, ETP, riscos, processo licitatório/autoridade) |
 | `requisitos/` | Requisitos da ontologia — perguntas de competência (Markdown) |
 | `Queries/` | Consultas SPARQL que respondem às perguntas de competência |
 | `poster/` | Pôster em produção para a **OntoBras 2026** |
