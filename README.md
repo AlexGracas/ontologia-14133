@@ -2,7 +2,13 @@
 
 Ontologia de domínio para o processo de **licitações e contratações públicas**
 brasileiro, modelada a partir da **Lei nº 14.133, de 1º de abril de 2021**, com
-apoio da ontologia de fundamentação **gUFO** (*Unified Foundational Ontology*).
+apoio da ontologia de fundamentação **UFO** (*Unified Foundational Ontology*),
+proposta por Giancarlo Guizzardi em sua tese seminal *Ontological Foundations
+for Structural Conceptual Models* (Guizzardi, 2005) e consolidada em Guizzardi
+et al., *Towards ontological foundations for conceptual modeling: the unified
+foundational ontology (UFO) story* (Applied Ontology, 2015). O arquivo OWL usa
+concretamente a **gUFO**, a implementação de UFO em OWL/RDF para a Web
+Semântica.
 
 O modelo cobre, entre outros temas, os atores do processo (agente de
 contratação, equipe de apoio, comissão de contratação, pregoeiro, licitante),
@@ -50,5 +56,16 @@ O pôster que apresenta este trabalho na OntoBras 2026 está em
 ## Ferramentas
 
 O modelo é editado no **Visual Paradigm** (`Licitacao14133.vpp`) e exportado
-para OWL/Turtle. A ontologia de fundamentação utilizada é a **gUFO**
+para OWL/Turtle. A ontologia de fundamentação teórica é a **UFO** (Guizzardi),
+importada no arquivo `.ttl` por meio de sua implementação em OWL, a **gUFO**
 (`http://purl.org/nemo/gufo#`).
+
+## Referências
+
+- GUIZZARDI, G. *Ontological Foundations for Structural Conceptual Models*.
+  2005. Tese (Doutorado) — University of Twente, Enschede, The Netherlands.
+- GUIZZARDI, G.; WAGNER, G.; ALMEIDA, J. P. A.; GUIZZARDI, R. S. S. *Towards
+  ontological foundations for conceptual modeling: the unified foundational
+  ontology (UFO) story*. Applied Ontology, v. 10, n. 3-4, p. 259-271, 2015.
+- LEI Nº 14.133, DE 1º DE ABRIL DE 2021 —
+  https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/l14133.htm
