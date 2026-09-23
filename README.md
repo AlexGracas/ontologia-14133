@@ -17,6 +17,20 @@ modalidades e fases da licitação, a contratação direta (dispensa e
 inexigibilidade) e a gestão de riscos (matriz de riscos, probabilidade,
 gravidade de impacto, respostas a risco).
 
+Além de seu valor como artefato de modelagem conceitual, esta ontologia é
+projetada para operar como o componente simbólico de uma **arquitetura
+neurossimbólica** de extração e recuperação de conhecimento a partir de
+documentos de contratação pública. Nesse cenário, sua TBox atua como
+**restrição semântica (guardrail)** sobre agentes de IA baseados em LLM,
+delimitando a extração automática a instâncias, propriedades de objeto e
+valores de propriedades de dados já previstos no esquema — o que preserva a
+integridade conceitual do modelo e evita assertivas estruturalmente
+inválidas que validações puramente sintáticas não detectam. O ABox resultante
+constitui, por sua vez, um artefato de **recuperação de dados** semanticamente
+estruturado e consultável via SPARQL (ver `Queries/`), capaz de capturar
+relações conceituais profundas e nuances jurídicas do domínio que abordagens
+de recuperação puramente vetoriais (RAG) não alcançam.
+
 Este trabalho está sendo produzido para submissão de um **pôster na OntoBras
 2026** (Ontology Brasil), apresentando o modelo conceitual e a abordagem de
 verificação por perguntas de competência descrita abaixo.
